@@ -1,0 +1,5 @@
+Index already made. Skipping to LTR Harvest
+LTR Harvest output file found, so I'm skipping to LTR Digest.
+Running LTR Digest.
+sh: hmmpress: command not found
+gt ltrdigest: error: Error running hmmpress. Please make sure that all HMMER executables are in your PATH.

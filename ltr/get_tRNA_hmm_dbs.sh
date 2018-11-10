@@ -3,6 +3,8 @@
 ## get tRNA database - all eukaryotes
 wget http://gtrnadb.ucsc.edu/download/tRNAs/eukaryotic-tRNAs.fa.gz
 gzip -d eukaryotic-tRNAs.fa.gz
+mkdir -p eukaryotic-tRNAs
+mv eukaryotic-tRNAs.fa eukaryotic-tRNAs/
 rm eukaryotic-tRNAs.fa.gz
 
 ## get gypdb HMMs

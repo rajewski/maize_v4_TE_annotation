@@ -61,7 +61,7 @@ fi
 if [ ! -s $GENOME.ltrdigest.gff3 ]; then
   echo "Running LTR Digest."
   mkdir -p ltrdigest
-  $GENOMETOOLS -j $SLURM_NTASKS ltrdigest -outfileprefix ltrdigest/$GENOME.ltrdigest -trnas eukaryotic-tRNAs.fa -hmms gydb_hmms/GyDB_collection/profiles/*.hmm -- $GENOME.ltrharvest.sorted.gff3 $GENOME > $GENOME.ltrdigest.gff3
+  $GENOMETOOLS -j $SLURM_NTASKS ltrdigest -outfileprefix ltrdigest/$GENOME.ltrdigest -trnas eukaryotic-tRNAs/eukaryotic-tRNAs.fa -hmms gydb_hmms/GyDB_collection/profiles/*.hmm $GENOME.ltrharvest.sorted.gff3 index/$GENOME > $GENOME.ltrdigest.gff3
 else
   echo "LTR Digest output file found, so I'm done."
 fi
