@@ -80,15 +80,15 @@ do
   grep --no-group-separator -B2 -A1 "LTR_retrotransposon\t" subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.gff3 | sed -n '1~2p' > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3
   ## make an index for the r script and bedtools complement
   if [ ! -s ${GENOMEFASTA}.fa.fai ]; then
-    echo "Indexing ${GENOMEFASTA}"
+    echo "Indexing ${GENOMEFASTA} for subtraction."
     samtools faidx ${GENOMEFASTA}
     echo "Done."
   else
-    echo "${GENOMEFASTA} index already generated. I'm skipping to subtracting from the gff3."
+    echo "${GENOMEFASTA} already indexed. I'm skipping to subtracting from the gff3."
   fi
   
   if [ ! -s subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3 ]; then
-    echo "Locating previously identified TEs in round $OLDINDEX gff3."
+    echo "Locating previously identified TEs in round $OLDINDEX subtraction gff3."
     ## find regions not covered by TEs
     bedtools complement -i subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 -g ${GENOME}.fa.fai > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3
     ## clean up the extra columns in this file
@@ -96,18 +96,30 @@ do
     mv subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.1.gff3 subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3
     echo "Done."
   else
-    echo "Round ${OLDINDEX} TEs already located. Moving on to creating the ${NEWGENOME} gff."
+    echo "Round ${OLDINDEX} subtraction TEs already located. Moving on to creating the ${NEWGENOME} fa file."
   fi
 
-## generate a subtracted fasta
-bedtools getfasta -fi $GENOMEFASTA -bed subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3 -fo $NEWGENOMEFASTA
-    
-## concatenate the entries by chromosome
-python collapse_chromosomes.py $NEWGENOMEFASTA > ${NEWGENOMEFASTA}.temp
-mv ${NEWGENOMEFASTA}.temp $NEWGENOMEFASTA
+  if [ ! -s $NEWGENOMEFASTA ]; then
+    ## generate a subtracted fasta
+    bedtools getfasta -fi $GENOMEFASTA -bed subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3 -fo $NEWGENOMEFASTA
+    ## concatenate the entries by chromosome
+    python collapse_chromosomes.py $NEWGENOMEFASTA > ${NEWGENOMEFASTA}.temp
+    mv ${NEWGENOMEFASTA}.temp $NEWGENOMEFASTA
+    echo "${NEWGENOMEFASTA} successfully created and gaps from round ${OLDINDEX} TEs closed."
+  else
+    echo "${NEWGENOMEFASTA} already exists. Skipping to indexing this new fasta file."
+  fi
 
-### index this fasta
-$GENOMETOOLS suffixerator -db ${NEWGENOMEFASTA} -indexname ${NEWGENOME} -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
+  if [ ! -s ${NEWGENOMEFASTA}.md5 ]; then
+    ### index this fasta
+    $GENOMETOOLS suffixerator -db ${NEWGENOMEFASTA} -indexname ${NEWGENOME} -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
+    echo "Done"
+  else
+    echo "${NEWGENOMEFASTA} already indexed. Skipping to running LTR harvest."
+  fi
+
+
+#######THIS IS WHERE YOU LEFT OFF DEBUGGING 10 Nov 2018. Nothing above has been run-tested yet, and nothing below has been checked over visually
 
 
 #####################

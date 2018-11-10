@@ -1,3 +1,4 @@
 Index already made. Skipping to LTR Harvest
 LTR Harvest output file found, so I'm skipping to LTR Digest.
 Running LTR Digest.
+slurmstepd-i30: error: *** JOB 3602384 ON i30 CANCELLED AT 2018-11-10T09:26:20 ***
