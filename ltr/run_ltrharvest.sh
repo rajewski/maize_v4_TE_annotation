@@ -25,10 +25,16 @@ if [ ! -d index ]; then
   mkdir index
   echo "Running Suffixerator to make genome index."
   $GENOMETOOLS suffixerator -db $GENOMEFASTA -indexname index/$GENOME -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
+  #make a symlink to the genomefasta so that and the index are in the same folder
+  echo "Symlinking a copy of the genome fasta into the index folder."
+  ln -s $GENOMEFASTA index/$GENOME.fasta
 else
   if [ ! -e index/$GENOME.md5 ]; then
     echo "Running Suffixerator to make genome index."
     $GENOMETOOLS suffixerator -db $GENOMEFASTA -indexname index/$GENOME -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
+    #make a symlink to the genomefasta so that and the index are in the same folder
+    echo "Symlinking a copy of the genome fasta into the index folder."
+    ln -s $GENOMEFASTA index/$GENOME.fasta
   else
     echo "Index already made. Skipping to LTR Harvest"
   fi
@@ -41,7 +47,7 @@ fi
 if [ ! -s ${GENOME}.ltrharvest.out ]; then
   echo "Running LTR Harvest."
   mkdir -p outinner
-  $GENOMETOOLS ltrharvest -index index/$GENOME -gff3 $GENOME.ltrharvest.gff3 -longoutput -outinner outinner/${GENOME}.ltrharvest.outinner.fa -out ${GENOME}.ltrharvest.fa > ${GENOME}.ltrharvest.out
+  $GENOMETOOLS ltrharvest -index index/$GENOME -gff3 $GENOME.ltrharvest.gff3 -outinner outinner/${GENOME}.ltrharvest.outinner.fa -out ${GENOME}.ltrharvest.fa > ${GENOME}.ltrharvest.out
   echo "Sorting the GFF3 file."
   $GENOMETOOLS gff3 -sort $GENOME.ltrharvest.gff3 > $GENOME.ltrharvest.sorted.gff3
 else

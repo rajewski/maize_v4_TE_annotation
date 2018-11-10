@@ -1,50 +1,58 @@
-#!/bin/bash -login
-#SBATCH -D /home/mstitzer/projects/agpv4_te_annotation/ncbi_pseudomolecule/ltr/mask_subtract
-#SBATCH -o /home/mstitzer/projects/agpv4_te_annotation/slurm-log/run_ltrharvest_nest-stdout-%j.txt
-#SBATCH -e /home/mstitzer/projects/agpv4_te_annotation/slurm-log/run_ltrharvest_nest-stderr-%j.txt
-#SBATCH -J ltr_nest_subtract
-set -e
-set -u
+#SBATCH -o ../../history/ltrharvest.nestedloop-%A.txt
+#SBATCH --ntasks=16
+#SBATCH --nodes=1
+#SBATCH --mem=96G
+#SBATCH --mail-user=araje002@ucr.edu
+#SBATCH --mail-type=all
+set -eu
 
+# Load Software 
+module load genometools/1.5.9
+module load bedtools/2.25.0
+module load samtools/1.6
 
-
-### update March 22, 2016
-###   was not removing the copy of the TSD generated via transposition previously. added before and after lines to grep to get the first TSD and the LTR TE itself, which will be removed from the genomic sequence for the next round of search.
-
-export PATH=$PATH:/home/mstitzer/software/bin
-
+# Set some variables to help
+GENOMETOOLS=gt
 MEMLIM=96GB
-
-### genome tools path
-GENOMETOOLS=/home/mstitzer/software/genometools-1.5.7/bin/gt
-
+GENOME=NIOBT_r1.0
+GENOMEFASTA=~/shared/Nobtusifolia/Genome_Files/NIOBT_r1.0.fasta
 i=1
-GENOMEBASE=B73V4.pseudomolecule
 
-
-## the first one is different, becuase need to set up subtract directory structure.
-
-python convert_ltrharvest_seq_gff_to_contignames.py ../${GENOMEBASE}.ltrharvest.gff3 > ${GENOMEBASE}.ltrharvest.contignames.gff3
-grep --no-group-separator -B2 -A1 "LTR_retrotransposon	" ${GENOMEBASE}.ltrharvest.contignames.gff3 | sed -n '1~2p' > ${GENOMEBASE}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3
+##### Set up first substraction becuase it needs some tweaks before we can make it routine
+python convert_ltrharvest_seq_gff_to_contignames.py ../${GENOME}.ltrharvest.gff3 > ${GENOME}.ltrharvest.contignames.gff3
+grep --no-group-separator -B2 -A1 "LTR_retrotransposon	" ${GENOME}.ltrharvest.contignames.gff3 | sed -n '1~2p' > ${GENOME}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3
 ## make an index for the r script and bedtools complement
-samtools faidx ../../${GENOMEBASE}.fasta
-bedtools complement -i ${GENOMEBASE}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 -g ../../${GENOMEBASE}.fasta.fai > ${GENOMEBASE}.ltrharvest.contignames.NOTltrretrotransposon.gff3
+samtools faidx $GENOMEFASTA
+awk -v OFS='\t' '{print $1, $2}' $GENOMEFASTA.fai > $GENOMEFASTA.2.fai
+mv $GENOMEFASTA.2.fai $GENOMEFASTA.fai
+bedtools complement -i ${GENOME}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 -g $GENOMEFASTA.fai > ${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3
 
 ## generate a subtracted fasta
-bedtools getfasta -fi ../../${GENOMEBASE}.fasta -bed ${GENOMEBASE}.ltrharvest.contignames.NOTltrretrotransposon.gff3 -fo ${GENOMEBASE}.subtract1.fa
+grep -Pv "scaffold\d*\t0\t0" $GENOME.ltrharvest.contignames.NOTltrretrotransposon.gff3 > $GENOME.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 #fix the gff with 0 start and end lines
+mv $GENOME.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 $GENOME.ltrharvest.contignames.NOTltrretrotransposon.gff3 #clean stuff up
+bedtools getfasta -fi $GENOMEFASTA -bed ${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3 -fo ${GENOME}.subtract1.fa
 
 ## concatenate the entries by chromosome
-python collapse_chromosomes.py ${GENOMEBASE}.subtract1.fa > ${GENOMEBASE}.temp
-mv ${GENOMEBASE}.temp ${GENOMEBASE}.subtract1.fa
+python collapse_chromosomes.py ${GENOME}.subtract1.fa > ${GENOME}.temp
+mv ${GENOME}.temp ${GENOME}.subtract1.fa
 
-### index this fasta
-$GENOMETOOLS suffixerator -db ${GENOMEBASE}.subtract1.fa -indexname ${GENOMEBASE}.subtract1 -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
-mkdir -p subtract1
-$GENOMETOOLS ltrharvest -index ${GENOMEBASE}.subtract1 -gff3 subtract1/${GENOMEBASE}.subtract1.ltrharvest.gff3 -motif tgca -minlenltr 100 -maxlenltr 7000 -mindistltr 1000 -maxdistltr 21000 -similar 85 -motifmis 1 -mintsd 5 -xdrop 5 -overlaps best -longoutput -outinner subtract1/${GENOMEBASE}.subtract1.ltrharvest.outinner.fa -out subtract1/${GENOMEBASE}.subtract1.ltrharvest.fa > subtract1/${GENOMEBASE}.subtract1.ltrharvest.out
-$GENOMETOOLS gff3 -sort subtract1/${GENOMEBASE}.subtract1.ltrharvest.gff3 > subtract1/${GENOMEBASE}.subtract1.ltrharvest.sorted.gff3
-#gt gff3 -sort hardmask1/${GENOMEBASE}.hardmask1.ltrharvest.gff3 > hardmask1/${GENOMEBASE}.hardmask1.ltrharvest.sorted.gff3
+## index this fasta
+if [ ! -e $GENOME.substract1.md5 ]; then
+  echo "Running Suffixerator to make genome index."
+  $GENOMETOOLS suffixerator -db ${GENOME}.subtract1.fa -indexname ${GENOME}.subtract1 -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
+else
+  echo "First round subtracted genome already indexed. Skipping to LTR Harvest."
+fi
 
-
+if [ ! -s subtract1/${GENOME}.subtract1.ltrharvest.out ]; then
+  echo "Running LTR Harvest."
+  mkdir -p subtract1
+  $GENOMETOOLS ltrharvest -index ${GENOME}.subtract1 -gff3 subtract1/${GENOME}.subtract1.ltrharvest.gff3 -outinner subtract1/${GENOME}.subtract1.ltrharvest.outinner.fa -out subtract1/${GENOME}.subtract1.ltrharvest.fa > subtract1/${GENOME}.subtract1.ltrharvest.out
+  echo "Sorting the GFF3 file."
+  $GENOMETOOLS gff3 -sort subtract1/${GENOME}.subtract1.ltrharvest.gff3 > subtract1/${GENOME}.subtract1.ltrharvest.sorted.gff3
+else
+  echo "First round subtraction LTR Harvest output file found, so I'm skipping ahead to round 2."
+fi
 
 
 ### go until there are no more LTR TEs in this nested form 

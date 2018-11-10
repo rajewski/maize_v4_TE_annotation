@@ -1,0 +1,5 @@
+Index already made. Skipping to LTR Harvest
+Running LTR Harvest.
+Sorting the GFF3 file.
+Running LTR Digest.
+gt ltrdigest: error: fopen(): cannot open file 'NIOBT_r1.0.esq': No such file or directory

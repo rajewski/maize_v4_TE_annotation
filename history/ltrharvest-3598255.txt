@@ -1,0 +1,4 @@
+Index directory not found, so I'll create it.
+Running Suffixerator to make genome index.
+Running LTR Harvest.
+gt ltrharvest: error: option "-longoutput" requires option "-mintsd" or "-motif"

@@ -1,3 +1,8 @@
 ## Data Files
 ltr/eukaryotic-tRNAs.fa
 ltr/gydb_hmms/
+
+## Probably results file
+NIOBT_r1.0*
+ltr/outinner/
+ltr/index/
