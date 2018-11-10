@@ -1,0 +1,4 @@
+Index already made. Skipping to LTR Harvest
+LTR Harvest output file found, so I'm skipping to LTR Digest.
+Running LTR Digest.
+gt ltrdigest: error: fopen(): cannot open file 'index/NIOBT_r1.0.fasta.esq': No such file or directory
