@@ -1,48 +1,65 @@
 #!/bin/bash -login
-#SBATCH -D /home/mstitzer/projects/agpv4_te_annotation/ncbi_pseudomolecule/ltr
-#SBATCH -o /home/mstitzer/projects/agpv4_te_annotation/slurm-log/ltrharvest-stdout-%j.txt
-#SBATCH -e /home/mstitzer/projects/agpv4_te_annotation/slurm-log/ltrharvest-stderr-%j.txt
-#SBATCH -J ltrharvest
-set -e
-set -u
+#SBATCH -o ../history/ltrharvest-%A.txt
+#SBATCH --ntasks=16
+#SBATCH --nodes=1
+#SBATCH --mem=96G
+#SBATCH --mail-user=araje002@ucr.edu
+#SBATCH --mail-type=all
+set -eu
 
+# Load Software 
+module load genometools/1.5.9
 
-export PATH=$PATH:/home/mstitzer/software/bin
-
-### genome tools path
-#GENOMETOOLS=/home/mstitzer/software/genometools-1.5.7/bin/gt
-GENOMETOOLS=/home/mstitzer/software/genometools-1.5.1/bin/gt
-
-# name the file stem based on suffixator index
-GENOME=B73V4.pseudomolecule
-GENOMEFASTA=../${GENOME}.fasta
-
+# Set some variables to help
+GENOMETOOLS=gt
 MEMLIM=96GB
-CPU=16
+GENOME=NIOBT_r1.0
+GENOMEFASTA=~/shared/Nobtusifolia/Genome_Files/NIOBT_r1.0.fasta
 
 ###########################################################################
 ## Run suffixerator to make a suffix array of the genome for genometools ##
 ###########################################################################
 
-$GENOMETOOLS suffixerator -db $GENOMEFASTA -indexname $GENOME -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
+if [ ! -d index ]; then
+  echo "Index directory not found, so I'll create it."
+  mkdir index
+  echo "Running Suffixerator to make genome index."
+  $GENOMETOOLS suffixerator -db $GENOMEFASTA -indexname index/$GENOME -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
+else
+  if [ ! -e index/$GENOME.md5 ]; then
+    echo "Running Suffixerator to make genome index."
+    $GENOMETOOLS suffixerator -db $GENOMEFASTA -indexname index/$GENOME -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
+  else
+    echo "Index already made. Skipping to LTR Harvest"
+  fi
+fi
 
 #####################
 ## Run LTR harvest ##
 #####################
 
-mkdir -p outinner
-
-## all defaults except for maxdistltr (default 15000)
-$GENOMETOOLS ltrharvest -index $GENOME -gff3 $GENOME.ltrharvest.gff3 -motif tgca -minlenltr 100 -maxlenltr 7000 -mindistltr 1000 -maxdistltr 20000 -similar 85 -motifmis 1 -mintsd 5 -xdrop 5 -overlaps best -longoutput -outinner outinner/${GENOME}.ltrharvest.outinner.fa -out ${GENOME}.ltrharvest.fa > ${GENOME}.ltrharvest.out
-
-$GENOMETOOLS gff3 -sort $GENOME.ltrharvest.gff3 > $GENOME.ltrharvest.sorted.gff3
+if [ ! -s ${GENOME}.ltrharvest.out ]; then
+  echo "Running LTR Harvest."
+  mkdir -p outinner
+  $GENOMETOOLS ltrharvest -index index/$GENOME -gff3 $GENOME.ltrharvest.gff3 -longoutput -outinner outinner/${GENOME}.ltrharvest.outinner.fa -out ${GENOME}.ltrharvest.fa > ${GENOME}.ltrharvest.out
+  echo "Sorting the GFF3 file."
+  $GENOMETOOLS gff3 -sort $GENOME.ltrharvest.gff3 > $GENOME.ltrharvest.sorted.gff3
+else
+  echo "LTR Harvest output file found, so I'm skipping to LTR Digest."
+fi
 
 ###################
 ## run ltrdigest ##
 ###################
 
-mkdir -p ltrdigest
+if [ ! -s $GENOME.ltrdigest.gff3 ]; then
+  echo "Running LTR Digest."
+  mkdir -p ltrdigest
+  $GENOMETOOLS -j $SLURM_NTASKS ltrdigest -outfileprefix ltrdigest/$GENOME.ltrdigest -trnas eukaryotic-tRNAs.fa -hmms gydb_hmms/GyDB_collection/profiles/*.hmm -- $GENOME.ltrharvest.sorted.gff3 $GENOME > $GENOME.ltrdigest.gff3
+else
+  echo "LTR Digest output file found, so I'm done."
+fi
 
-$GENOMETOOLS -j 16 ltrdigest -outfileprefix ltrdigest/$GENOME.ltrdigest -trnas eukaryotic-tRNAs.fa -hmms gydb_hmms/GyDB_collection/profiles/*.hmm -- $GENOME.ltrharvest.sorted.gff3 $GENOME > $GENOME.ltrdigest.gff3
+
 
 
