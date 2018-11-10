@@ -1,0 +1,3 @@
+Index already made. Skipping to LTR Harvest
+LTR Harvest output file found, so I'm skipping to LTR Digest.
+Running LTR Digest.

@@ -1,6 +1,6 @@
 #!/bin/bash -login
 #SBATCH -o ../history/ltrharvest-%A.txt
-#SBATCH --ntasks=16
+#SBATCH --ntasks=5
 #SBATCH --nodes=1
 #SBATCH --mem=96G
 #SBATCH --mail-user=araje002@ucr.edu
