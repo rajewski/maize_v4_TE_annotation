@@ -88,7 +88,7 @@ do
   fi
   
   if [ ! -s subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3 ]; then
-    echo "Locating previously identified TEs in round $OLDINDEX subtraction gff3."
+    echo "Locating previously identified TEs in round $OLDINDEX gff3."
     ## find regions not covered by TEs
     bedtools complement -i subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 -g ${GENOME}.fa.fai > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3
     ## clean up the extra columns in this file
@@ -96,7 +96,7 @@ do
     mv subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.1.gff3 subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3
     echo "Done."
   else
-    echo "Round ${OLDINDEX} subtraction TEs already located. Moving on to creating the ${NEWGENOME} fa file."
+    echo "Round ${OLDINDEX} subtraction TEs already located. Moving on to creating the ${NEWGENOME} fasta file."
   fi
 
   if [ ! -s $NEWGENOMEFASTA ]; then
@@ -112,31 +112,30 @@ do
 
   if [ ! -s ${NEWGENOMEFASTA}.md5 ]; then
     ### index this fasta
+    echo "Indexing ${NEWGENOMEFASTA}"
     $GENOMETOOLS suffixerator -db ${NEWGENOMEFASTA} -indexname ${NEWGENOME} -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
     echo "Done"
   else
     echo "${NEWGENOMEFASTA} already indexed. Skipping to running LTR harvest."
   fi
 
-
-#######THIS IS WHERE YOU LEFT OFF DEBUGGING 10 Nov 2018. Nothing above has been run-tested yet, and nothing below has been checked over visually
-
-
-#####################
-## Run LTR harvest ##
-#####################
-
-mkdir -p subtract${NEWINDEX}
-### allow extra 1kb for each iteration, because we miss insertions that are not structural
-MAXLEN=$(($i * 1000 + 20000))    ### so 20kb for the first hardmask, plus the additional 1kb per round
-## all defaults except for maxdistltr (default 15000)
-$GENOMETOOLS ltrharvest -index ${NEWGENOME} -gff3 subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.gff3 -motif tgca -minlenltr 100 -maxlenltr 7000 -mindistltr 1000 -maxdistltr $MAXLEN -similar 85 -motifmis 1 -mintsd 5 -xdrop 5 -overlaps best -longoutput -outinner subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.outinner.fa -out subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.fa > subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.out
-
-$GENOMETOOLS gff3 -sort subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.gff3 > subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.sorted.gff3
-
-
+  ## Run LTR harvest
+  if [ ! -s subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.sorted.gff3 ]; then
+    echo "Running LTR Harvest on ${NEWGENOMEFASTA}"
+    mkdir -p subtract${NEWINDEX}
+    # allow extra 1kb for each iteration, because we miss insertions that are not structural
+    MAXLEN=$(($i * 1000 + 15000))    ### so 15kb default for the first round, plus the additional 1kb per round
+    # all defaults except for maxdistltr 
+    $GENOMETOOLS ltrharvest -index ${NEWGENOME} -gff3 subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.gff3  -maxdistltr $MAXLEN -outinner subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.outinner.fa -out subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.fa > subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.out
+    $GENOMETOOLS gff3 -sort subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.gff3 > subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.sorted.gff3
+    echo "Done identifying TEs from ${NEWGENOMEFASTA}."
+  else
+    echo "TEs from ${NEWGENOMEFASTA} already located. Moving on."
 done
 
+
+
+# 10 Nov 18, this is probably not necessary below:
 
 ## can then run all the ltrdigest in array form on all the gffs
 ###################
