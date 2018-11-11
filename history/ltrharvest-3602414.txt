@@ -1,0 +1,5 @@
+slurmstepd-i18: error: task/cgroup: unable to add task[pid=116796] to memory cg '(null)'
+slurmstepd-i18: error: jobacct_gather/cgroup: unable to instanciate user 3080 memory cgroup
+Index already made. Skipping to LTR Harvest
+LTR Harvest output file found, so I'm skipping to LTR Digest.
+Running LTR Digest.

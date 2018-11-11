@@ -7,6 +7,9 @@ __LTR Retrotransposons__
 
 scripts in ```ltr```
 
+11 Nov 2018: I have the first round of LTR Harvest and LTR Digest working for Nobt. I removed the motif from the search parameters because it was missing a known TE inside of NoFUL2. I'm waiting on those results. There several rounds of subtracting out TEs and re-running LTRharvest and LTR Digest are ready to go I think. The new code hasnt been test run yet though.
+
+
 Software needed:
 
 - ncbi blast+
