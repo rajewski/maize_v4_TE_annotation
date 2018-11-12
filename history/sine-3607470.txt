@@ -1,0 +1,14 @@
+SINE-FINDER already downloaded, so I'm going to run it now.
+SINE-FINDER has already been run.
+But the TSDs haven't been removed from the results. I'll do that now.
+Done
+Reading file NIOBT_r1.0-matches.noTSD.fa 100%
+332569 nt in 1259 seqs, min 71, max 607, avg 264
+Masking 100%
+Aligning 100%
+Matching query sequences: 255 of 1259 (20.25%)
+vsearch v1.10.2_linux_x86_64, 503.6GB RAM, 64 cores
+https://github.com/torognes/vsearch
+
+Number of processed lines in NIOBT_r1.0-matches.noTSD.allvall.8080.out: 1216
+Number of families : 1016

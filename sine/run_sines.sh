@@ -39,7 +39,7 @@ if [ ! -f ${GENOME}-matches.fasta ]; then
   mv ~/shared/Nobtusifolia/Genome_Files/${GENOME}-matches.fasta .
   mv ~/shared/Nobtusifolia/Genome_Files/${GENOME}-matches.csv .
   echo "Done."
-  if [ ! -f ${GENOME}-matches.noTSD.fa }; then
+  if [ ! -f ${GENOME}-matches.noTSD.fa ]; then
     echo "Removing TSDs from the results."
     python remove_tsd_sinefinder.py ${GENOME}-matches.fasta ${GENOME}-matches.noTSD.fa
     echo "Done"
@@ -49,7 +49,7 @@ if [ ! -f ${GENOME}-matches.fasta ]; then
   fi
 else
   echo "SINE-FINDER has already been run."
-  if [ ! -f ${GENOME}-matches.noTSD.fa }; then
+  if [ ! -f ${GENOME}-matches.noTSD.fa ]; then
     echo "But the TSDs haven't been removed from the results. I'll do that now."
     python remove_tsd_sinefinder.py ${GENOME}-matches.fasta ${GENOME}-matches.noTSD.fa
     echo "Done"
@@ -60,10 +60,22 @@ fi
 
 
 #### vsearch to identify homology, silix to cluster
-$VSEARCH -allpairs_global ${GENOME}-matches.noTSD.fa -blast6out ${GENOME}-matches.noTSD.allvall.8080.out -id 0.8 -query_cov 0.8 -target_cov 0.8 --threads $SLURM_NTASKS
+if [ ! -e ${GENOME}-matches.noTSD.allvall.8080.out ]; then
+  echo "Running VSEARCH to find homology of SINES."
+  $VSEARCH -allpairs_global ${GENOME}-matches.noTSD.fa -blast6out ${GENOME}-matches.noTSD.allvall.8080.out -id 0.8 -query_cov 0.8 -target_cov 0.8 --threads $SLURM_NTASKS
+  echo "Done."
+else
+  echo "Homology VSEARCH already completed, skipping to clustering."
+fi
 
-# single linkage cluster those that are 80% identical to each other.
-$SILIX ${GENOME}-matches.noTSD.fa ${GENOME}-matches.noTSD.allvall.8080.out -f SINE -i 0.8 -r 0.8 > ${GENOME}-matches.noTSD.8080.fnodes
+if [ ! -e ${GENOME}-matches.noTSD.8080.fnodes ]; then
+  # single linkage cluster those that are 80% identical to each other.
+  echo "Running SILIX to cluser."
+  $SILIX ${GENOME}-matches.noTSD.fa ${GENOME}-matches.noTSD.allvall.8080.out -f SINE -i 0.8 -r 0.8 > ${GENOME}-matches.noTSD.8080.fnodes
+  echo "Done."
+else
+  echo "SILIX clustering already done. Why exactly did you run this script in the first place?"
+fi
 
 #This clustering of an external DB no longer works because MTEC is down.
 # cluster my families into MTEC TE families
@@ -71,6 +83,6 @@ $SILIX ${GENOME}-matches.noTSD.fa ${GENOME}-matches.noTSD.allvall.8080.out -f SI
 #$VSEARCH --usearch_global TE_12-Feb-2015_15-35.fa -db ${GENOME}-matches.noTSD.fa -id 0.8 -query_cov 0.8 -target_cov 0.8 -blast6out ${GENOME}-matches.noTSD.TEDB8080.out -strand both -top_hits_only --threads $SLURM_NTASKS
 
 ### cluster into families and output final gff with this R script
-# Rscript generate_gff_SINE.R $GENOME #I am going to run this separately the first time, to make it work without the MTEC clusters
+Rscript generate_gff_SINE.R $GENOME #I am going to run this separately the first time, to make it work without the MTEC clusters
 
 

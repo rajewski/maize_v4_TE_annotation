@@ -1,0 +1,10 @@
+SINE-FINDER already downloaded, so I'm going to run it now.
+SINE-FINDER has already been run.
+/var/spool/slurmd/job3606482/slurm_script: line 52: [: missing `]'
+And TSDs have also already been removed from the results. Skipping to clustering of results.
+
+
+Error: Unable to open file for reading (NIOBT_r1.0-matches.noTSD.fa)
+vsearch v1.10.2_linux_x86_64, 503.6GB RAM, 64 cores
+https://github.com/torognes/vsearch
+

@@ -1,8 +1,8 @@
 library(rtracklayer)
 library(stringr)
 
-GENOMENAME='NIOBT_r1.0'
-#GENOMENAME=commandArgs(trailingOnly=TRUE) #for use with piping from run_sines.sh
+#GENOMENAME='NIOBT_r1.0'
+GENOMENAME=commandArgs(trailingOnly=TRUE) #for use with piping from run_sines.sh
 
 # Read in silix results (w/o family assignments)
 a=read.table(paste0(GENOMENAME, '-matches.noTSD.8080.fnodes'))
