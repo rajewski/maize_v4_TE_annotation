@@ -36,8 +36,8 @@ fi
 if [ ! -f ${GENOME}-matches.fasta ]; then
   echo "Running SINE-FINDER."
   python sine_finder.py -T chunkwise -V1 -f both ${GENOMEFASTA}
-  mv ${GENOMEFASTA}-matches.fasta .
-  mv ${GENOMEFASTA}-matches.csv .
+  mv ~/shared/Nobtusifolia/Genome_Files/${GENOME}-matches.fasta .
+  mv ~/shared/Nobtusifolia/Genome_Files/${GENOME}-matches.csv .
   echo "Done."
   if [ ! -f ${GENOME}-matches.noTSD.fa }; then
     echo "Removing TSDs from the results."
@@ -71,6 +71,6 @@ $SILIX ${GENOME}-matches.noTSD.fa ${GENOME}-matches.noTSD.allvall.8080.out -f SI
 #$VSEARCH --usearch_global TE_12-Feb-2015_15-35.fa -db ${GENOME}-matches.noTSD.fa -id 0.8 -query_cov 0.8 -target_cov 0.8 -blast6out ${GENOME}-matches.noTSD.TEDB8080.out -strand both -top_hits_only --threads $SLURM_NTASKS
 
 ### cluster into families and output final gff with this R script
-# Rscript generate_gff_SINE.R $GENOME #I am going to run this separately the first time, to make it work withou the MTEC clusters
+# Rscript generate_gff_SINE.R $GENOME #I am going to run this separately the first time, to make it work without the MTEC clusters
 
 
