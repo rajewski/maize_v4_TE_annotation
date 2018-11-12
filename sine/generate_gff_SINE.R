@@ -24,7 +24,7 @@ f$Name=''
 ### can't figure out how to assign properly, so giving up and doing a for loop
 #f$Name=sapply(names(table(f$V1)), function(x) f$Name[f$V1==x]=paste(x, 'B73v4', str_pad(1:sum(f$V1==x), 5, pad='0'), sep=''))
 for (x in names(table(f$V1))){
-	f$Name[f$V1==x]=paste0(x, 'B73v4', str_pad(1:sum(f$V1==x), 5, pad='0'))
+	f$Name[f$V1==x]=paste0(x, GENOMENAME, str_pad(1:sum(f$V1==x), 5, pad='0'))
 	}
 
 # MTEC Clustering ---------------------------------------------------------
@@ -44,7 +44,7 @@ f$mtec.fam=NA # But we still have to have something here to make the script work
 
 
 # Output the GFF3 ---------------------------------------------------------
-f.gff=data.frame(f$name, 'SineFinder', 'SINE_element', f$start, f$end, '.', '+', '.', paste('ID=', f$Name, ';Name=', paste0(f$Name, f$mtec.fam, paste('TSDlen', f$TSD.len), paste('TSDmismat', f$TSD.mism, sep=''), sep='_'), sep=''))
+f.gff=data.frame(f$name, 'SineFinder', 'SINE_element', f$start, f$end, '.', '+', '.', paste('ID=', f$Name, ';Name=', paste(f$Name, f$mtec.fam, paste0('TSDlen', f$TSD.len), paste0('TSDmismat', f$TSD.mism), sep='_'), sep=''))
 write.table(f.gff, paste0(GENOMENAME, '.RST.gff3'), quote=F, sep='\t', row.names=F, col.names=F)
 
 # also keep track of fasta names and newly assigned gffnames as to easily convert between the two (e.g. switching fasta names)
