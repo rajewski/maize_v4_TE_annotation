@@ -22,22 +22,24 @@ GENOMEFASTA=~/shared/Nobtusifolia/Genome_Files/NIOBT_r1.0.fasta
 ###########################################################################
 
 if [ ! -d index ]; then
-  echo "Index directory not found, so I'll create it."
+  echo "$(date +'%r'): Index directory not found, so I'll create it."
   mkdir index
-  echo "Running Suffixerator to make genome index."
+  echo "$(date +'%r'): Running Suffixerator to make genome index."
   $GENOMETOOLS suffixerator -db $GENOMEFASTA -indexname index/$GENOME -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
   #make a symlink to the genomefasta so that and the index are in the same folder
-  echo "Symlinking a copy of the genome fasta into the index folder."
+  echo "$(date +'%r'): Symlinking a copy of the genome fasta into the index folder."
   ln -s $GENOMEFASTA index/$GENOME.fasta
+  echo "$(date +'%r'): Done."
 else
   if [ ! -e index/$GENOME.md5 ]; then
-    echo "Running Suffixerator to make genome index."
+    echo "$(date +'%r'): Running Suffixerator to make genome index."
     $GENOMETOOLS suffixerator -db $GENOMEFASTA -indexname index/$GENOME -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
     #make a symlink to the genomefasta so that and the index are in the same folder
-    echo "Symlinking a copy of the genome fasta into the index folder."
+    echo "$(date +'%r'): Symlinking a copy of the genome fasta into the index folder."
     ln -s $GENOMEFASTA index/$GENOME.fasta
+    echo "$(date +'%r'): Done."
   else
-    echo "Index already made. Skipping to LTR Harvest"
+    echo "$(date +'%r'): Index already made. Skipping to LTR Harvest"
   fi
 fi
 
@@ -46,13 +48,14 @@ fi
 #####################
 
 if [ ! -s ${GENOME}.ltrharvest.out ]; then
-  echo "Running LTR Harvest."
+  echo "$(date +'%r'): Running LTR Harvest."
   mkdir -p outinner
   $GENOMETOOLS ltrharvest -index index/$GENOME -gff3 $GENOME.ltrharvest.gff3 -outinner outinner/${GENOME}.ltrharvest.outinner.fa -out ${GENOME}.ltrharvest.fa > ${GENOME}.ltrharvest.out
-  echo "Sorting the GFF3 file."
+  echo "$(date +'%r'): Sorting the GFF3 file."
   $GENOMETOOLS gff3 -sort $GENOME.ltrharvest.gff3 > $GENOME.ltrharvest.sorted.gff3
+  echo "$(date +'%r'): Done."
 else
-  echo "LTR Harvest output file found, so I'm skipping to LTR Digest."
+  echo "$(date +'%r'): LTR Harvest output file found, so I'm skipping to LTR Digest."
 fi
 
 ###################
@@ -60,11 +63,12 @@ fi
 ###################
 
 if [ ! -s $GENOME.ltrdigest.gff3 ]; then
-  echo "Running LTR Digest."
+  echo "$(date +'%r'): Running LTR Digest."
   mkdir -p ltrdigest
   $GENOMETOOLS -j $SLURM_NTASKS ltrdigest -outfileprefix ltrdigest/$GENOME.ltrdigest -trnas eukaryotic-tRNAs/eukaryotic-tRNAs.fa -hmms gydb_hmms/GyDB_collection/profiles/*.hmm -- $GENOME.ltrharvest.sorted.gff3 index/$GENOME > $GENOME.ltrdigest.gff3
+  echo "$(date +'%r'): Done."
 else
-  echo "LTR Digest output file found, so I'm done."
+  echo "$(date +'%r'): LTR Digest output file found, so I'm done."
 fi
 
 

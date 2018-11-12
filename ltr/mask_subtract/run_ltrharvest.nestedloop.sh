@@ -38,20 +38,20 @@ mv ${GENOMEBASE}.temp ${GENOMEBASE}.subtract1.fa
 
 ## index this fasta
 if [ ! -s $GENOMEBASE.substract1.md5 ]; then
-  echo "Running Suffixerator to make genome index."
+  echo "$(date +'%r'): Running Suffixerator to make genome index."
   $GENOMETOOLS suffixerator -db ${GENOMEBASE}.subtract1.fa -indexname ${GENOMEBASE}.subtract1 -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
 else
-  echo "First round subtracted genome already indexed. Skipping to LTR Harvest."
+  echo "$(date +'%r'): First round subtracted genome already indexed. Skipping to LTR Harvest."
 fi
 
 if [ ! -s subtract1/${GENOMEBASE}.subtract1.ltrharvest.gff3 ]; then
-  echo "Running LTR Harvest."
+  echo "$(date +'%r'): Running LTR Harvest."
   mkdir -p subtract1
   $GENOMETOOLS ltrharvest -index ${GENOMEBASE}.subtract1 -gff3 subtract1/${GENOMEBASE}.subtract1.ltrharvest.gff3 -outinner subtract1/${GENOMEBASE}.subtract1.ltrharvest.outinner.fa -out subtract1/${GENOMEBASE}.subtract1.ltrharvest.fa > subtract1/${GENOMEBASE}.subtract1.ltrharvest.out
-  echo "Sorting the GFF3 file."
+  echo "$(date +'%r'): Sorting the GFF3 file."
   $GENOMETOOLS gff3 -sort subtract1/${GENOMEBASE}.subtract1.ltrharvest.gff3 > subtract1/${GENOMEBASE}.subtract1.ltrharvest.sorted.gff3
 else
-  echo "First round subtraction LTR Harvest output file found, so I'm skipping ahead to round 2."
+  echo "$(date +'%r'): First round subtraction LTR Harvest output file found, so I'm skipping ahead to round 2."
 fi
 
 
@@ -68,7 +68,7 @@ do
   GENOMEFASTA=${GENOME}.fa
   NEWGENOMEFASTA=${NEWGENOME}.fa
   
-  echo "Running round ${NEWINDEX} subtraction."
+  echo "$(date +'%r'): Running round ${NEWINDEX} subtraction."
 
   ### Run suffixerator to make a suffix array of the genome for genometools ###
   # switch genome tools back to their real contig names
@@ -80,23 +80,23 @@ do
   grep --no-group-separator -B2 -A1 "LTR_retrotransposon\t" subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.gff3 | sed -n '1~2p' > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3
   ## make an index for the r script and bedtools complement
   if [ ! -s ${GENOMEFASTA}.fa.fai ]; then
-    echo "Indexing ${GENOMEFASTA} for subtraction."
+    echo "$(date +'%r'): Indexing ${GENOMEFASTA} for subtraction."
     samtools faidx ${GENOMEFASTA}
-    echo "Done."
+    echo "$(date +'%r'): Done."
   else
-    echo "${GENOMEFASTA} already indexed. I'm skipping to subtracting from the gff3."
+    echo "$(date +'%r'): ${GENOMEFASTA} already indexed. I'm skipping to subtracting from the gff3."
   fi
   
   if [ ! -s subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3 ]; then
-    echo "Locating previously identified TEs in round $OLDINDEX gff3."
+    echo "$(date +'%r'): Locating previously identified TEs in round $OLDINDEX gff3."
     ## find regions not covered by TEs
     bedtools complement -i subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 -g ${GENOME}.fa.fai > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3
     ## clean up the extra columns in this file
     grep -Pv "scaffold\d*\t0\t0" subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3 > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.1.gff3
     mv subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.1.gff3 subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3
-    echo "Done."
+    echo "$(date +'%r'): Done."
   else
-    echo "Round ${OLDINDEX} subtraction TEs already located. Moving on to creating the ${NEWGENOME} fasta file."
+    echo "$(date +'%r'): Round ${OLDINDEX} subtraction TEs already located. Moving on to creating the ${NEWGENOME} fasta file."
   fi
 
   if [ ! -s $NEWGENOMEFASTA ]; then
@@ -105,32 +105,32 @@ do
     ## concatenate the entries by chromosome
     python collapse_chromosomes.py $NEWGENOMEFASTA > ${NEWGENOMEFASTA}.temp
     mv ${NEWGENOMEFASTA}.temp $NEWGENOMEFASTA
-    echo "${NEWGENOMEFASTA} successfully created and gaps from round ${OLDINDEX} TEs closed."
+    echo "$(date +'%r'): ${NEWGENOMEFASTA} successfully created and gaps from round ${OLDINDEX} TEs closed."
   else
-    echo "${NEWGENOMEFASTA} already exists. Skipping to indexing this new fasta file."
+    echo "$(date +'%r'): ${NEWGENOMEFASTA} already exists. Skipping to indexing this new fasta file."
   fi
 
   if [ ! -s ${NEWGENOMEFASTA}.md5 ]; then
     ### index this fasta
-    echo "Indexing ${NEWGENOMEFASTA}"
+    echo "$(date +'%r'): Indexing ${NEWGENOMEFASTA}"
     $GENOMETOOLS suffixerator -db ${NEWGENOMEFASTA} -indexname ${NEWGENOME} -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
     echo "Done"
   else
-    echo "${NEWGENOMEFASTA} already indexed. Skipping to running LTR harvest."
+    echo "$(date +'%r'): ${NEWGENOMEFASTA} already indexed. Skipping to running LTR harvest."
   fi
 
   ## Run LTR harvest
   if [ ! -s subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.sorted.gff3 ]; then
-    echo "Running LTR Harvest on ${NEWGENOMEFASTA}"
+    echo "$(date +'%r'): Running LTR Harvest on ${NEWGENOMEFASTA}"
     mkdir -p subtract${NEWINDEX}
     # allow extra 1kb for each iteration, because we miss insertions that are not structural
     MAXLEN=$(($i * 1000 + 15000))    ### so 15kb default for the first round, plus the additional 1kb per round
     # all defaults except for maxdistltr 
     $GENOMETOOLS ltrharvest -index ${NEWGENOME} -gff3 subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.gff3  -maxdistltr $MAXLEN -outinner subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.outinner.fa -out subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.fa > subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.out
     $GENOMETOOLS gff3 -sort subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.gff3 > subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.sorted.gff3
-    echo "Done identifying TEs from ${NEWGENOMEFASTA}."
+    echo "$(date +'%r'): Done identifying TEs from ${NEWGENOMEFASTA}."
   else
-    echo "TEs from ${NEWGENOMEFASTA} already located. Moving on."
+    echo "$(date +'%r'): TEs from ${NEWGENOMEFASTA} already located. Moving on."
 done
 
 
