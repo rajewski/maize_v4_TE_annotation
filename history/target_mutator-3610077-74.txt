@@ -1,0 +1,39 @@
+slurmstepd-i23: error: task/cgroup: unable to add task[pid=193121] to memory cg '(null)'
+slurmstepd-i23: error: jobacct_gather/cgroup: unable to instanciate user 3080 memory cgroup
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTM_Zm13585_AC195825-1.fa
+DTM_Zm13585_AC195825-1.fa
+DTM_Zm13585_AC195825-1
+03:30:24 PM: Running TARGeT on DTM_Zm13585_AC195825-1.
+03:30:25 PM: TARGeT index database of genome already created.
+03:30:25 PM: Running TARGeT for DTM_Zm13585_AC195825-1.
+>DTM_Zm13585_AC195825-1 TSD=.........
+
+
+All required programs located.
+
+/rhome/arajewski/shared/Nobtusifolia/Genome_Files/NIOBT_r1.0.fasta
+Single input file, single or group input
+
+Using BLASTN
+
+Making svg image of blast results
+
+Converting svg to jpg
+
+Blast in: DTM_Zm13585_AC195825-1/DTM_Zm13585_AC195825-1_target_DTM_Zm13585_AC195825-1_2018_11_12_153025/DTM_Zm13585_AC195825-1.blast  PHI out: DTM_Zm13585_AC195825-1/DTM_Zm13585_AC195825-1_target_DTM_Zm13585_AC195825-1_2018_11_12_153025/DTM_Zm13585_AC195825-1
+Running PHI
+PHI finished!
+
+Making svg image of homologs
+
+Coverting svg image to pdf
+
+Building index dict
+In standardize_flanks, flank = 200
+TARGeT has finished!
+03:30:36 PM: Done.
+03:30:36 PM: Running mTEA on DTM_Zm13585_AC195825-1.
+finding conserve sequences on the left side
+finding conserved sequences on the right side
+03:30:36 PM: Done.
+03:30:36 PM: No matches to DTM_Zm13585_AC195825-1 found. Deleting empty files.

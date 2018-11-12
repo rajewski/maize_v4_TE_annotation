@@ -1,0 +1,6 @@
+slurmstepd-i18: error: task/cgroup: unable to add task[pid=139373] to memory cg '(null)'
+slurmstepd-i18: error: jobacct_gather/cgroup: unable to instanciate user 3080 memory cgroup
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTC_ZM00027_consensus.fa
+DTC_ZM00027_consensus.fa
+DTC_ZM00027_consensus
+/var/spool/slurmd/job3608902/slurm_script: line 61: syntax error: unexpected end of file

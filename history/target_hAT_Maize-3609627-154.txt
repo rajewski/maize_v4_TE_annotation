@@ -1,0 +1,47 @@
+slurmstepd-i18: error: task/cgroup: unable to add task[pid=10636] to memory cg '(null)'
+slurmstepd-i18: error: jobacct_gather/cgroup: unable to instanciate user 3080 memory cgroup
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTA_ZM00155_consensus.fa
+DTA_ZM00155_consensus.fa
+DTA_ZM00155_consensus
+03:14:28 PM: Running TARGeT on DTA_ZM00155_consensus.
+03:14:28 PM: TARGeT index database of genome already created.
+03:14:28 PM: Running TARGeT for DTA_ZM00155_consensus.
+>DTA_ZM00155_consensus TSD=........
+
+
+All required programs located.
+
+/rhome/arajewski/shared/Nobtusifolia/Annotation/TE/maize_v4_TE_annotation/tir/target_mTEA/Zea_mays.AGPv4.dna.chromosome.10.fa
+Single input file, single or group input
+
+Using BLASTN
+
+Making svg image of blast results
+
+Converting svg to jpg
+
+Blast in: DTA_ZM00155_consensus/DTA_ZM00155_consensus_target_DTA_ZM00155_consensus_2018_11_12_151428/DTA_ZM00155_consensus.blast  PHI out: DTA_ZM00155_consensus/DTA_ZM00155_consensus_target_DTA_ZM00155_consensus_2018_11_12_151428/DTA_ZM00155_consensus
+Running PHI
+PHI finished!
+
+Making svg image of homologs
+
+Coverting svg image to pdf
+
+Building index dict
+In standardize_flanks, flank = 200
+TARGeT has finished!
+03:14:31 PM: Done.
+03:14:31 PM: Running mTEA on DTA_ZM00155_consensus.
+finding TSDs and TIRs in sequence DTA_ZM00155_consensus_10:103655008..103658354
+finding TSDs and TIRs in sequence DTA_ZM00155_consensus_10:40617962..40618920
+finding TSDs and TIRs in sequence DTA_ZM00155_consensus_10:41853736..41854461
+finding TSDs and TIRs in sequence DTA_ZM00155_consensus_10:109145684..109146400
+finding TSDs and TIRs in sequence DTA_ZM00155_consensus_10:108834383..108834995
+finding TSDs and TIRs in sequence DTA_ZM00155_consensus_10:63000332..63000942
+finding TSDs and TIRs in sequence DTA_ZM00155_consensus_10:103697290..103697736
+finding TSDs and TIRs in sequence DTA_ZM00155_consensus_10:139025934..139026364
+finding conserve sequences on the left side
+finding conserved sequences on the right side
+03:14:31 PM: Done.
+03:14:31 PM: No matches to DTA_ZM00155_consensus found. Deleting empty files.

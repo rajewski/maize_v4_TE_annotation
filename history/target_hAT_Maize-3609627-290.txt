@@ -1,0 +1,94 @@
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTA_ZM00291_consensus.fa
+DTA_ZM00291_consensus.fa
+DTA_ZM00291_consensus
+03:18:41 PM: Running TARGeT on DTA_ZM00291_consensus.
+03:18:41 PM: TARGeT index database of genome already created.
+03:18:41 PM: Running TARGeT for DTA_ZM00291_consensus.
+>DTA_ZM00291_consensus TSD=........
+
+
+All required programs located.
+
+/rhome/arajewski/shared/Nobtusifolia/Annotation/TE/maize_v4_TE_annotation/tir/target_mTEA/Zea_mays.AGPv4.dna.chromosome.10.fa
+Single input file, single or group input
+
+Using BLASTN
+
+Making svg image of blast results
+
+Converting svg to jpg
+
+Blast in: DTA_ZM00291_consensus/DTA_ZM00291_consensus_target_DTA_ZM00291_consensus_2018_11_12_151841/DTA_ZM00291_consensus.blast  PHI out: DTA_ZM00291_consensus/DTA_ZM00291_consensus_target_DTA_ZM00291_consensus_2018_11_12_151841/DTA_ZM00291_consensus
+Running PHI
+PHI finished!
+
+Making svg image of homologs
+
+Coverting svg image to pdf
+
+Building index dict
+In standardize_flanks, flank = 200
+TARGeT has finished!
+03:18:46 PM: Done.
+03:18:46 PM: Running mTEA on DTA_ZM00291_consensus.
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:85973043..85980729
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:92763330..92767727
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:122051067..122052425
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:21486664..21488022
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:36982677..36983934
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:79172057..79173298
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:115551313..115552554
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:126419501..126420726
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:103294147..103295370
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:19929932..19931069
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:30317576..30318710
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:107178570..107179631
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:70736449..70737492
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:135273956..135274991
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:148314762..148315767
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:149862802..149863805
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:148174477..148175365
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:68427279..68428163
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:105619976..105620840
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:42077291..42078155
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:70497278..70498122
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:107647615..107648446
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:144437127..144437924
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:34730223..34731019
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:140505998..140506793
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:95457360..95458155
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:112912828..112913623
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:107513993..107514785
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:36623181..36623961
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:149272462..149273229
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:79895514..79896267
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:14593333..14594041
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:2764264..2764972
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:15441776..15442479
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:118311810..118312507
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:118380806..118381411
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:85946961..85947556
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:80855129..80855719
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:74319155..74319711
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:55253005..55253551
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:112913650..112914195
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:137715374..137715904
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:117010665..117011090
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:61164788..61165212
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:105619256..105619678
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:4837102..4837515
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:70496604..70497002
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:107648690..107649086
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:130519772..130520165
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:61164116..61164509
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:116615845..116616234
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:113424765..113425152
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:99611695..99612081
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:20365818..20366203
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:118608671..118609055
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:146222418..146222800
+finding TSDs and TIRs in sequence DTA_ZM00291_consensus_10:74415371..74415752
+finding conserve sequences on the left side
+finding conserved sequences on the right side
+03:18:46 PM: Done.
+03:18:46 PM: No matches to DTA_ZM00291_consensus found. Deleting empty files.

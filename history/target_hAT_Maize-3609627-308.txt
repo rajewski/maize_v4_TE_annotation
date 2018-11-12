@@ -1,0 +1,43 @@
+slurmstepd-i23: error: task/cgroup: unable to add task[pid=186134] to memory cg '(null)'
+slurmstepd-i23: error: jobacct_gather/cgroup: unable to instanciate user 3080 memory cgroup
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTA_ZM00309_consensus.fa
+DTA_ZM00309_consensus.fa
+DTA_ZM00309_consensus
+03:19:12 PM: Running TARGeT on DTA_ZM00309_consensus.
+03:19:12 PM: TARGeT index database of genome already created.
+03:19:12 PM: Running TARGeT for DTA_ZM00309_consensus.
+>DTA_ZM00309_consensus TSD=........
+
+
+All required programs located.
+
+/rhome/arajewski/shared/Nobtusifolia/Annotation/TE/maize_v4_TE_annotation/tir/target_mTEA/Zea_mays.AGPv4.dna.chromosome.10.fa
+Single input file, single or group input
+
+Using BLASTN
+
+Making svg image of blast results
+
+Converting svg to jpg
+
+Blast in: DTA_ZM00309_consensus/DTA_ZM00309_consensus_target_DTA_ZM00309_consensus_2018_11_12_151912/DTA_ZM00309_consensus.blast  PHI out: DTA_ZM00309_consensus/DTA_ZM00309_consensus_target_DTA_ZM00309_consensus_2018_11_12_151912/DTA_ZM00309_consensus
+Running PHI
+PHI finished!
+
+Making svg image of homologs
+
+Coverting svg image to pdf
+
+Building index dict
+In standardize_flanks, flank = 200
+TARGeT has finished!
+03:19:15 PM: Done.
+03:19:15 PM: Running mTEA on DTA_ZM00309_consensus.
+finding TSDs and TIRs in sequence DTA_ZM00309_consensus_10:105486797..105488426
+finding TSDs and TIRs in sequence DTA_ZM00309_consensus_10:146877547..146878705
+finding TSDs and TIRs in sequence DTA_ZM00309_consensus_10:130435815..130436108
+finding TSDs and TIRs in sequence DTA_ZM00309_consensus_10:11082950..11083169
+finding conserve sequences on the left side
+finding conserved sequences on the right side
+03:19:15 PM: Done.
+03:19:15 PM: No matches to DTA_ZM00309_consensus found. Deleting empty files.

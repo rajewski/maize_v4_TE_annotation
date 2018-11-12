@@ -1,0 +1,66 @@
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTA_ZM00268_consensus.fa
+DTA_ZM00268_consensus.fa
+DTA_ZM00268_consensus
+03:18:10 PM: Running TARGeT on DTA_ZM00268_consensus.
+03:18:10 PM: TARGeT index database of genome already created.
+03:18:10 PM: Running TARGeT for DTA_ZM00268_consensus.
+>DTA_ZM00268_consensus TSD=........
+
+
+All required programs located.
+
+/rhome/arajewski/shared/Nobtusifolia/Annotation/TE/maize_v4_TE_annotation/tir/target_mTEA/Zea_mays.AGPv4.dna.chromosome.10.fa
+Single input file, single or group input
+
+Using BLASTN
+
+Making svg image of blast results
+
+Converting svg to jpg
+
+Blast in: DTA_ZM00268_consensus/DTA_ZM00268_consensus_target_DTA_ZM00268_consensus_2018_11_12_151810/DTA_ZM00268_consensus.blast  PHI out: DTA_ZM00268_consensus/DTA_ZM00268_consensus_target_DTA_ZM00268_consensus_2018_11_12_151810/DTA_ZM00268_consensus
+Running PHI
+PHI finished!
+
+Making svg image of homologs
+
+Coverting svg image to pdf
+
+Building index dict
+In standardize_flanks, flank = 200
+TARGeT has finished!
+03:18:14 PM: Done.
+03:18:14 PM: Running mTEA on DTA_ZM00268_consensus.
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:131997819..131997991
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:60600061..60600224
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:20863109..20863271
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:15551403..15551556
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:20568440..20568592
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:105694514..105694663
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:98678792..98678936
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:18085983..18086121
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:118303033..118303163
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:66574260..66574380
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:8022491..8022605
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:149093023..149093136
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:149269239..149269347
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:7341020..7341126
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:7306657..7306763
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:148390510..148390611
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:9020761..9020860
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:27981404..27981480
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:102185555..102185631
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:1099745..1099806
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:116765434..116765494
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:116804173..116804233
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:116737583..116737643
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:144130757..144130817
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:116721152..116721212
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:136715508..136715568
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:116912266..116912326
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:18796567..18796624
+finding TSDs and TIRs in sequence DTA_ZM00268_consensus_10:105474961..105475011
+finding conserve sequences on the left side
+finding conserved sequences on the right side
+03:18:14 PM: Done.
+03:18:14 PM: No matches to DTA_ZM00268_consensus found. Deleting empty files.

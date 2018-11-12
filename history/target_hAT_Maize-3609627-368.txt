@@ -1,0 +1,42 @@
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTA_ZM00369_consensus.fa
+DTA_ZM00369_consensus.fa
+DTA_ZM00369_consensus
+03:20:45 PM: Running TARGeT on DTA_ZM00369_consensus.
+03:20:45 PM: TARGeT index database of genome already created.
+03:20:45 PM: Running TARGeT for DTA_ZM00369_consensus.
+>DTA_ZM00369_consensus TSD=........
+
+
+All required programs located.
+
+/rhome/arajewski/shared/Nobtusifolia/Annotation/TE/maize_v4_TE_annotation/tir/target_mTEA/Zea_mays.AGPv4.dna.chromosome.10.fa
+Single input file, single or group input
+
+Using BLASTN
+
+Making svg image of blast results
+
+Converting svg to jpg
+
+Blast in: DTA_ZM00369_consensus/DTA_ZM00369_consensus_target_DTA_ZM00369_consensus_2018_11_12_152045/DTA_ZM00369_consensus.blast  PHI out: DTA_ZM00369_consensus/DTA_ZM00369_consensus_target_DTA_ZM00369_consensus_2018_11_12_152045/DTA_ZM00369_consensus
+Running PHI
+PHI finished!
+
+Making svg image of homologs
+
+Coverting svg image to pdf
+
+Building index dict
+In standardize_flanks, flank = 200
+TARGeT has finished!
+03:20:48 PM: Done.
+03:20:48 PM: Running mTEA on DTA_ZM00369_consensus.
+finding TSDs and TIRs in sequence DTA_ZM00369_consensus_10:23862209..23863128
+finding TSDs and TIRs in sequence DTA_ZM00369_consensus_10:20882258..20883002
+finding TSDs and TIRs in sequence DTA_ZM00369_consensus_10:17996183..17996776
+finding TSDs and TIRs in sequence DTA_ZM00369_consensus_10:112942528..112942992
+finding TSDs and TIRs in sequence DTA_ZM00369_consensus_10:17982977..17983231
+finding conserve sequences on the left side
+finding conserved sequences on the right side
+03:20:49 PM: Done.
+03:20:49 PM: No matches to DTA_ZM00369_consensus found. Deleting empty files.

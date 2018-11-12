@@ -1,0 +1,9 @@
+slurmstepd-i18: error: jobacct_gather/cgroup: unable to instanciate user 3080 memory cgroup
+slurmstepd-i18: error: task/cgroup: unable to add task[pid=64160] to memory cg '(null)'
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTA_ZM00036_consensus.fa
+DTA_ZM00036_consensus.fa
+DTA_ZM00036_consensus
+01:51:14 PM: Running TARGeT on DTA_ZM00036_consensus.
+01:51:14 PM: TARGeT index database of genome already created.
+01:51:14 PM: Running TARGeT for DTA_ZM00036_consensus.
+slurmstepd-i18: error: *** JOB 3609518 ON i18 CANCELLED AT 2018-11-12T14:21:19 DUE TO TIME LIMIT ***

@@ -1,0 +1,6 @@
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTH_ZM00002_consensus.fa
+DTH_ZM00002_consensus.fa
+DTH_ZM00002_consensus
+03:37:09 PM: Running TARGeT on DTH_ZM00002_consensus.
+03:37:10 PM: TARGeT index database of genome already created.
+03:37:10 PM: Running TARGeT for DTH_ZM00002_consensus.

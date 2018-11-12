@@ -1,0 +1,6 @@
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTM_Zm12110_AC207526-1.fa
+DTM_Zm12110_AC207526-1.fa
+DTM_Zm12110_AC207526-1
+03:30:25 PM: Running TARGeT on DTM_Zm12110_AC207526-1.
+03:30:25 PM: TARGeT index database of genome already created.
+03:30:25 PM: Running TARGeT for DTM_Zm12110_AC207526-1.

@@ -1,0 +1,46 @@
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTA_ZM00353_consensus.fa
+DTA_ZM00353_consensus.fa
+DTA_ZM00353_consensus
+03:20:14 PM: Running TARGeT on DTA_ZM00353_consensus.
+03:20:14 PM: TARGeT index database of genome already created.
+03:20:14 PM: Running TARGeT for DTA_ZM00353_consensus.
+>DTA_ZM00353_consensus TSD=........
+
+
+All required programs located.
+
+/rhome/arajewski/shared/Nobtusifolia/Annotation/TE/maize_v4_TE_annotation/tir/target_mTEA/Zea_mays.AGPv4.dna.chromosome.10.fa
+Single input file, single or group input
+
+Using BLASTN
+
+Making svg image of blast results
+
+Converting svg to jpg
+
+Blast in: DTA_ZM00353_consensus/DTA_ZM00353_consensus_target_DTA_ZM00353_consensus_2018_11_12_152014/DTA_ZM00353_consensus.blast  PHI out: DTA_ZM00353_consensus/DTA_ZM00353_consensus_target_DTA_ZM00353_consensus_2018_11_12_152014/DTA_ZM00353_consensus
+Running PHI
+PHI finished!
+
+Making svg image of homologs
+
+Coverting svg image to pdf
+
+Building index dict
+In standardize_flanks, flank = 200
+TARGeT has finished!
+03:20:17 PM: Done.
+03:20:17 PM: Running mTEA on DTA_ZM00353_consensus.
+finding TSDs and TIRs in sequence DTA_ZM00353_consensus_10:112935633..112936025
+finding TSDs and TIRs in sequence DTA_ZM00353_consensus_10:111164727..111164962
+finding TSDs and TIRs in sequence DTA_ZM00353_consensus_10:147351903..147352097
+finding TSDs and TIRs in sequence DTA_ZM00353_consensus_10:142354576..142354760
+finding TSDs and TIRs in sequence DTA_ZM00353_consensus_10:76939213..76939393
+finding TSDs and TIRs in sequence DTA_ZM00353_consensus_10:103301161..103301323
+finding TSDs and TIRs in sequence DTA_ZM00353_consensus_10:132248257..132248361
+finding TSDs and TIRs in sequence DTA_ZM00353_consensus_10:132248397..132248498
+finding TSDs and TIRs in sequence DTA_ZM00353_consensus_10:88842524..88842617
+finding conserve sequences on the left side
+finding conserved sequences on the right side
+03:20:17 PM: Done.
+03:20:17 PM: No matches to DTA_ZM00353_consensus found. Deleting empty files.

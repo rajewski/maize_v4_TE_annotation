@@ -1,0 +1,47 @@
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTA_ZM00220_consensus.fa
+DTA_ZM00220_consensus.fa
+DTA_ZM00220_consensus
+03:16:38 PM: Running TARGeT on DTA_ZM00220_consensus.
+03:16:38 PM: TARGeT index database of genome already created.
+03:16:38 PM: Running TARGeT for DTA_ZM00220_consensus.
+>DTA_ZM00220_consensus TSD=........
+
+
+All required programs located.
+
+/rhome/arajewski/shared/Nobtusifolia/Annotation/TE/maize_v4_TE_annotation/tir/target_mTEA/Zea_mays.AGPv4.dna.chromosome.10.fa
+Single input file, single or group input
+
+Using BLASTN
+
+Making svg image of blast results
+
+Converting svg to jpg
+
+Blast in: DTA_ZM00220_consensus/DTA_ZM00220_consensus_target_DTA_ZM00220_consensus_2018_11_12_151638/DTA_ZM00220_consensus.blast  PHI out: DTA_ZM00220_consensus/DTA_ZM00220_consensus_target_DTA_ZM00220_consensus_2018_11_12_151638/DTA_ZM00220_consensus
+Running PHI
+PHI finished!
+
+Making svg image of homologs
+
+Coverting svg image to pdf
+
+Building index dict
+In standardize_flanks, flank = 200
+TARGeT has finished!
+03:16:42 PM: Done.
+03:16:42 PM: Running mTEA on DTA_ZM00220_consensus.
+finding TSDs and TIRs in sequence DTA_ZM00220_consensus_10:138167091..138168191
+finding TSDs and TIRs in sequence DTA_ZM00220_consensus_10:138177692..138178623
+finding TSDs and TIRs in sequence DTA_ZM00220_consensus_10:6102268..6103153
+finding TSDs and TIRs in sequence DTA_ZM00220_consensus_10:138145891..138146715
+finding TSDs and TIRs in sequence DTA_ZM00220_consensus_10:57931223..57931946
+finding TSDs and TIRs in sequence DTA_ZM00220_consensus_10:83703492..83704064
+finding TSDs and TIRs in sequence DTA_ZM00220_consensus_10:26933201..26933758
+finding TSDs and TIRs in sequence DTA_ZM00220_consensus_10:48073648..48074195
+finding TSDs and TIRs in sequence DTA_ZM00220_consensus_10:23994624..23995170
+finding TSDs and TIRs in sequence DTA_ZM00220_consensus_10:99768203..99768741
+finding conserve sequences on the left side
+finding conserved sequences on the right side
+03:16:42 PM: Done.
+03:16:42 PM: No matches to DTA_ZM00220_consensus found. Deleting empty files.

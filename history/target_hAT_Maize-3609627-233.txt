@@ -1,0 +1,56 @@
+slurmstepd-i23: error: task/cgroup: unable to add task[pid=183935] to memory cg '(null)'
+slurmstepd-i23: error: jobacct_gather/cgroup: unable to instanciate user 3080 memory cgroup
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTA_ZM00234_consensus.fa
+DTA_ZM00234_consensus.fa
+DTA_ZM00234_consensus
+03:17:07 PM: Running TARGeT on DTA_ZM00234_consensus.
+03:17:07 PM: TARGeT index database of genome already created.
+03:17:07 PM: Running TARGeT for DTA_ZM00234_consensus.
+>DTA_ZM00234_consensus TSD=........
+
+
+All required programs located.
+
+/rhome/arajewski/shared/Nobtusifolia/Annotation/TE/maize_v4_TE_annotation/tir/target_mTEA/Zea_mays.AGPv4.dna.chromosome.10.fa
+Single input file, single or group input
+
+Using BLASTN
+
+Making svg image of blast results
+
+Converting svg to jpg
+
+Blast in: DTA_ZM00234_consensus/DTA_ZM00234_consensus_target_DTA_ZM00234_consensus_2018_11_12_151707/DTA_ZM00234_consensus.blast  PHI out: DTA_ZM00234_consensus/DTA_ZM00234_consensus_target_DTA_ZM00234_consensus_2018_11_12_151707/DTA_ZM00234_consensus
+Running PHI
+PHI finished!
+
+Making svg image of homologs
+
+Coverting svg image to pdf
+
+Building index dict
+In standardize_flanks, flank = 200
+TARGeT has finished!
+03:17:11 PM: Done.
+03:17:11 PM: Running mTEA on DTA_ZM00234_consensus.
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:137212290..137212834
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:111488115..111488657
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:111456290..111456827
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:97027184..97027719
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:143566468..143567000
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:9834740..9835269
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:28075640..28076165
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:89797105..89797626
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:144214276..144214791
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:145992079..145992556
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:59478375..59478843
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:20027932..20028269
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:20029076..20029412
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:124858497..124858803
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:97058605..97058800
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:97158896..97159091
+finding TSDs and TIRs in sequence DTA_ZM00234_consensus_10:133045362..133045530
+finding conserve sequences on the left side
+finding conserved sequences on the right side
+03:17:11 PM: Done.
+03:17:11 PM: No matches to DTA_ZM00234_consensus found. Deleting empty files.

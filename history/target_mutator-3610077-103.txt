@@ -1,0 +1,37 @@
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTM_Zm25996_AC205363-1.fa
+DTM_Zm25996_AC205363-1.fa
+DTM_Zm25996_AC205363-1
+03:30:59 PM: Running TARGeT on DTM_Zm25996_AC205363-1.
+03:30:59 PM: TARGeT index database of genome already created.
+03:30:59 PM: Running TARGeT for DTM_Zm25996_AC205363-1.
+>DTM_Zm25996_AC205363-1 TSD=.........
+
+
+All required programs located.
+
+/rhome/arajewski/shared/Nobtusifolia/Genome_Files/NIOBT_r1.0.fasta
+Single input file, single or group input
+
+Using BLASTN
+
+Making svg image of blast results
+
+Converting svg to jpg
+
+Blast in: DTM_Zm25996_AC205363-1/DTM_Zm25996_AC205363-1_target_DTM_Zm25996_AC205363-1_2018_11_12_153059/DTM_Zm25996_AC205363-1.blast  PHI out: DTM_Zm25996_AC205363-1/DTM_Zm25996_AC205363-1_target_DTM_Zm25996_AC205363-1_2018_11_12_153059/DTM_Zm25996_AC205363-1
+Running PHI
+PHI finished!
+
+Making svg image of homologs
+
+Coverting svg image to pdf
+
+Building index dict
+In standardize_flanks, flank = 200
+TARGeT has finished!
+03:31:12 PM: Done.
+03:31:12 PM: Running mTEA on DTM_Zm25996_AC205363-1.
+finding conserve sequences on the left side
+finding conserved sequences on the right side
+03:31:13 PM: Done.
+03:31:13 PM: No matches to DTM_Zm25996_AC205363-1 found. Deleting empty files.

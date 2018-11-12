@@ -1,0 +1,46 @@
+slurmstepd-i23: error: task/cgroup: unable to add task[pid=184385] to memory cg '(null)'
+slurmstepd-i23: error: jobacct_gather/cgroup: unable to instanciate user 3080 memory cgroup
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTA_ZM00251_consensus.fa
+DTA_ZM00251_consensus.fa
+DTA_ZM00251_consensus
+03:17:38 PM: Running TARGeT on DTA_ZM00251_consensus.
+03:17:38 PM: TARGeT index database of genome already created.
+03:17:38 PM: Running TARGeT for DTA_ZM00251_consensus.
+>DTA_ZM00251_consensus TSD=........
+
+
+All required programs located.
+
+/rhome/arajewski/shared/Nobtusifolia/Annotation/TE/maize_v4_TE_annotation/tir/target_mTEA/Zea_mays.AGPv4.dna.chromosome.10.fa
+Single input file, single or group input
+
+Using BLASTN
+
+Making svg image of blast results
+
+Converting svg to jpg
+
+Blast in: DTA_ZM00251_consensus/DTA_ZM00251_consensus_target_DTA_ZM00251_consensus_2018_11_12_151738/DTA_ZM00251_consensus.blast  PHI out: DTA_ZM00251_consensus/DTA_ZM00251_consensus_target_DTA_ZM00251_consensus_2018_11_12_151738/DTA_ZM00251_consensus
+Running PHI
+PHI finished!
+
+Making svg image of homologs
+
+Coverting svg image to pdf
+
+Building index dict
+In standardize_flanks, flank = 200
+TARGeT has finished!
+03:17:42 PM: Done.
+03:17:42 PM: Running mTEA on DTA_ZM00251_consensus.
+finding TSDs and TIRs in sequence DTA_ZM00251_consensus_10:105723012..105723457
+finding TSDs and TIRs in sequence DTA_ZM00251_consensus_10:18421811..18422234
+finding TSDs and TIRs in sequence DTA_ZM00251_consensus_10:75263515..75263703
+finding TSDs and TIRs in sequence DTA_ZM00251_consensus_10:92348807..92348994
+finding TSDs and TIRs in sequence DTA_ZM00251_consensus_10:142712099..142712286
+finding TSDs and TIRs in sequence DTA_ZM00251_consensus_10:130424636..130424823
+finding TSDs and TIRs in sequence DTA_ZM00251_consensus_10:18385842..18386026
+finding conserve sequences on the left side
+finding conserved sequences on the right side
+03:17:42 PM: Done.
+03:17:42 PM: No matches to DTA_ZM00251_consensus found. Deleting empty files.

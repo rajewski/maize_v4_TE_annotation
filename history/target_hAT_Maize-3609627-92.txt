@@ -1,0 +1,48 @@
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTA_ZM00093_consensus.fa
+DTA_ZM00093_consensus.fa
+DTA_ZM00093_consensus
+03:12:25 PM: Running TARGeT on DTA_ZM00093_consensus.
+03:12:25 PM: TARGeT index database of genome already created.
+03:12:25 PM: Running TARGeT for DTA_ZM00093_consensus.
+>DTA_ZM00093_consensus TSD=........
+
+
+All required programs located.
+
+/rhome/arajewski/shared/Nobtusifolia/Annotation/TE/maize_v4_TE_annotation/tir/target_mTEA/Zea_mays.AGPv4.dna.chromosome.10.fa
+Single input file, single or group input
+
+Using BLASTN
+
+Making svg image of blast results
+
+Converting svg to jpg
+
+Blast in: DTA_ZM00093_consensus/DTA_ZM00093_consensus_target_DTA_ZM00093_consensus_2018_11_12_151225/DTA_ZM00093_consensus.blast  PHI out: DTA_ZM00093_consensus/DTA_ZM00093_consensus_target_DTA_ZM00093_consensus_2018_11_12_151225/DTA_ZM00093_consensus
+Running PHI
+PHI finished!
+
+Making svg image of homologs
+
+Coverting svg image to pdf
+
+Building index dict
+In standardize_flanks, flank = 200
+TARGeT has finished!
+03:12:29 PM: Done.
+03:12:29 PM: Running mTEA on DTA_ZM00093_consensus.
+finding TSDs and TIRs in sequence DTA_ZM00093_consensus_10:110382150..110383261
+finding TSDs and TIRs in sequence DTA_ZM00093_consensus_10:142434268..142435325
+finding TSDs and TIRs in sequence DTA_ZM00093_consensus_10:29348578..29349607
+finding TSDs and TIRs in sequence DTA_ZM00093_consensus_10:102187838..102188859
+finding TSDs and TIRs in sequence DTA_ZM00093_consensus_10:83537869..83538867
+finding TSDs and TIRs in sequence DTA_ZM00093_consensus_10:132108704..132109586
+finding TSDs and TIRs in sequence DTA_ZM00093_consensus_10:18140866..18141747
+finding TSDs and TIRs in sequence DTA_ZM00093_consensus_10:130909472..130910347
+finding TSDs and TIRs in sequence DTA_ZM00093_consensus_10:91317914..91318754
+finding TSDs and TIRs in sequence DTA_ZM00093_consensus_10:28260112..28260722
+finding TSDs and TIRs in sequence DTA_ZM00093_consensus_10:86791488..86791970
+finding conserve sequences on the left side
+finding conserved sequences on the right side
+03:12:30 PM: Done.
+03:12:30 PM: No matches to DTA_ZM00093_consensus found. Deleting empty files.

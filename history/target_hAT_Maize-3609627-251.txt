@@ -1,0 +1,72 @@
+slurmstepd-i23: error: jobacct_gather/cgroup: unable to instanciate user 3080 memory cgroup
+slurmstepd-i23: error: task/cgroup: unable to add task[pid=184375] to memory cg '(null)'
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTA_ZM00252_consensus.fa
+DTA_ZM00252_consensus.fa
+DTA_ZM00252_consensus
+03:17:38 PM: Running TARGeT on DTA_ZM00252_consensus.
+03:17:38 PM: TARGeT index database of genome already created.
+03:17:38 PM: Running TARGeT for DTA_ZM00252_consensus.
+>DTA_ZM00252_consensus TSD=........
+
+
+All required programs located.
+
+/rhome/arajewski/shared/Nobtusifolia/Annotation/TE/maize_v4_TE_annotation/tir/target_mTEA/Zea_mays.AGPv4.dna.chromosome.10.fa
+Single input file, single or group input
+
+Using BLASTN
+
+Making svg image of blast results
+
+Converting svg to jpg
+
+Blast in: DTA_ZM00252_consensus/DTA_ZM00252_consensus_target_DTA_ZM00252_consensus_2018_11_12_151738/DTA_ZM00252_consensus.blast  PHI out: DTA_ZM00252_consensus/DTA_ZM00252_consensus_target_DTA_ZM00252_consensus_2018_11_12_151738/DTA_ZM00252_consensus
+Running PHI
+PHI finished!
+
+Making svg image of homologs
+
+Coverting svg image to pdf
+
+Building index dict
+In standardize_flanks, flank = 200
+TARGeT has finished!
+03:17:42 PM: Done.
+03:17:42 PM: Running mTEA on DTA_ZM00252_consensus.
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:140868033..140868813
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:122389699..122390270
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:77759963..77760523
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:31253150..31253707
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:111398804..111399339
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:7356496..7357030
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:90882619..90883133
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:147928577..147929085
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:106329290..106329786
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:109144616..109145074
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:46164979..46165410
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:140817339..140817758
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:125127846..125128225
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:122314473..122314852
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:146470196..146470575
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:138504100..138504479
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:96587661..96588040
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:1498229..1498608
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:146131122..146131501
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:26010600..26010979
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:136312635..136313009
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:123198357..123198679
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:68192568..68192874
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:79722126..79722431
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:123040098..123040402
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:140828811..140829096
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:144474856..144475135
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:67590633..67590900
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:79809995..79810200
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:70738889..70739066
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:146140517..146140684
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:10426851..10427018
+finding TSDs and TIRs in sequence DTA_ZM00252_consensus_10:118623752..118623913
+finding conserve sequences on the left side
+finding conserved sequences on the right side
+03:17:43 PM: Done.
+03:17:43 PM: No matches to DTA_ZM00252_consensus found. Deleting empty files.

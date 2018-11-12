@@ -1,0 +1,37 @@
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTA_ZM00270_consensus.fa
+DTA_ZM00270_consensus.fa
+DTA_ZM00270_consensus
+01:22:16 PM: Running TARGeT on DTA_ZM00270_consensus.
+01:22:16 PM: TARGeT index database of genome already created.
+01:22:16 PM: Running TARGeT for DTA_ZM00270_consensus.
+>DTA_ZM00270_consensus TSD=........
+
+
+All required programs located.
+
+/rhome/arajewski/shared/Nobtusifolia/Genome_Files/NIOBT_r1.0.fasta
+Single input file, single or group input
+
+Using BLASTN
+
+Making svg image of blast results
+
+Converting svg to jpg
+
+Blast in: DTA_ZM00270_consensus/DTA_ZM00270_consensus_target_DTA_ZM00270_consensus_2018_11_12_132216/DTA_ZM00270_consensus.blast  PHI out: DTA_ZM00270_consensus/DTA_ZM00270_consensus_target_DTA_ZM00270_consensus_2018_11_12_132216/DTA_ZM00270_consensus
+Running PHI
+PHI finished!
+
+Making svg image of homologs
+
+Coverting svg image to pdf
+
+Building index dict
+In standardize_flanks, flank = 200
+TARGeT has finished!
+01:22:26 PM: Done.
+01:22:26 PM: Running mTEA on DTA_ZM00270_consensus.
+finding conserve sequences on the left side
+finding conserved sequences on the right side
+01:22:26 PM: Done.
+01:22:26 PM: No matches to DTA_ZM00270_consensus found. Deleting empty files.

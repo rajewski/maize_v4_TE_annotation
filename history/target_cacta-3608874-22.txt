@@ -1,0 +1,4 @@
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTC_ZM00023_consensus.fa
+DTC_ZM00023_consensus.fa
+DTC_ZM00023_consensus
+/var/spool/slurmd/job3608897/slurm_script: line 61: syntax error: unexpected end of file

@@ -2,6 +2,7 @@
 #SBATCH -o ../../history/target_cacta-%A-%a.txt
 #SBATCH --ntasks=4
 #SBATCH --mem=6G
+#SBATCH --time=01:00:00
 #SBATCH --mail-user=araje002@ucr.edu
 #SBATCH --mail-type=all
 #SBATCH --array=0-125
@@ -43,7 +44,7 @@ if [ ! -f ${DNATE}.tir.fa.tab ]; then
     echo "$(date +'%r'): Done."
   fi
   ### Convert names of flanking fasta file
-  if [ ! -f ${DNATE}.flank_adj ]; then
+  if [ ! -f ${DNATE}.flank.fa ]; then
     python convert_target_toTIRID.py ${DNATE}/*/${DNATE}.flank > ${DNATE}.flank.fa
   else
     python convert_target_toTIRID.py ${DNATE}/*/${DNATE}.flank_adj > ${DNATE}.flank.fa
@@ -53,7 +54,13 @@ if [ ! -f ${DNATE}.tir.fa.tab ]; then
     echo "$(date +'%r'): Running mTEA on ${DNATE}."
     perl id_TIR_in_FASTA.mcs.pl -o ${DNATE}.tir.fa -i ${DNATE}.flank.fa -c NNN -t CACTNNNNNNNNN -d 3 -s 0
     echo "$(date +'%r'): Done."
-    #rm -rf $DNATE
   else
     echo "$(date +'%r'): mTEA has already been run for ${DNATE}. Exiting."
+  fi
+  if [ ! -s ${DNATE}.tir.fa ]; then
+    echo "$(date +'%r'): No matches to ${DNATE} found. Deleting empty files."
+    rm -rf $DNATE*
+  fi
+else
+  echo "$(date +'%r'): TARGeT has already been run on ${DNATE}. Exiting."
 fi

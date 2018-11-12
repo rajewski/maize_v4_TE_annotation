@@ -1,0 +1,7 @@
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTA_ZM00036_consensus.fa
+DTA_ZM00036_consensus.fa
+DTA_ZM00036_consensus
+01:08:25 PM: Running TARGeT on DTA_ZM00036_consensus.
+01:08:25 PM: TARGeT index database of genome already created.
+01:08:25 PM: Running TARGeT for DTA_ZM00036_consensus.
+slurmstepd-i37: error: *** JOB 3609092 ON i37 CANCELLED AT 2018-11-12T13:34:28 ***

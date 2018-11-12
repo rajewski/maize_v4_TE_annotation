@@ -1,0 +1,39 @@
+slurmstepd-i18: error: task/cgroup: unable to add task[pid=43346] to memory cg '(null)'
+slurmstepd-i18: error: jobacct_gather/cgroup: unable to instanciate user 3080 memory cgroup
+/rhome/arajewski/TE_Annotation/tir/target_mTEA/tir_references/DTM_Zm18028_consensus.fa
+DTM_Zm18028_consensus.fa
+DTM_Zm18028_consensus
+03:30:59 PM: Running TARGeT on DTM_Zm18028_consensus.
+03:30:59 PM: TARGeT index database of genome already created.
+03:30:59 PM: Running TARGeT for DTM_Zm18028_consensus.
+>DTM_Zm18028_consensus TSD=.........
+
+
+All required programs located.
+
+/rhome/arajewski/shared/Nobtusifolia/Genome_Files/NIOBT_r1.0.fasta
+Single input file, single or group input
+
+Using BLASTN
+
+Making svg image of blast results
+
+Converting svg to jpg
+
+Blast in: DTM_Zm18028_consensus/DTM_Zm18028_consensus_target_DTM_Zm18028_consensus_2018_11_12_153059/DTM_Zm18028_consensus.blast  PHI out: DTM_Zm18028_consensus/DTM_Zm18028_consensus_target_DTM_Zm18028_consensus_2018_11_12_153059/DTM_Zm18028_consensus
+Running PHI
+PHI finished!
+
+Making svg image of homologs
+
+Coverting svg image to pdf
+
+Building index dict
+In standardize_flanks, flank = 200
+TARGeT has finished!
+03:31:09 PM: Done.
+03:31:09 PM: Running mTEA on DTM_Zm18028_consensus.
+finding conserve sequences on the left side
+finding conserved sequences on the right side
+03:31:09 PM: Done.
+03:31:09 PM: No matches to DTM_Zm18028_consensus found. Deleting empty files.
