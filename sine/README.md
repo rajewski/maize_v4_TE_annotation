@@ -6,10 +6,7 @@ The defaults are that A and B box consensus nucleotide sequences are RVTGG and G
 
 ## How SINEs were Identified
 
-The script ```run_sines.sh``` will download sine_finder, run sine_finder, parse results, assign to families, and output a GFF.
-To rerun, need to check paths at the beginning of the file, where things like the genome name and paths to executables for SILIX and VSEARCH are located.
+The script ```run_sines.sh``` will download sine_finder, run sine_finder, parse results, assign to families, and output a GFF3.
 
-Each candidate SINE was is clustered using VSEARCH and silix, to characterize families.
-These families are clustered with [Maize TE Consortium](http://www.maizetedb.org) exemplars to faciliatate comparison between genome versions.
+I cannot get the clustering to MTEC families to work because the MTEC website with the reference sequences is no longer operational. The families are clustered within the given species using VSEARHC and SILIX.
 
-The script ```slurm_sinefinder.sh``` is what I used to submit on our cluster.
