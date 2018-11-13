@@ -4,3 +4,4 @@ DTH_ZM00002_consensus
 03:37:09 PM: Running TARGeT on DTH_ZM00002_consensus.
 03:37:10 PM: TARGeT index database of genome already created.
 03:37:10 PM: Running TARGeT for DTH_ZM00002_consensus.
+slurmstepd-i33: error: *** JOB 3610282 ON i33 CANCELLED AT 2018-11-12T16:22:09 DUE TO TIME LIMIT ***

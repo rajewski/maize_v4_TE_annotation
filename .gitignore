@@ -1,6 +1,10 @@
 ## Data Files
 ltr/eukaryotic-tRNAs/
 ltr/gydb_hmms/
+tir/target_mTEA/DT*/
+tir/target_mTEA/DT*
+tir/target_mTEA/TAIR10*
+tir/target_mTEA/tir_TAIR10_references/
 
 ## Probably results file
 NIOBT_r1.0*
