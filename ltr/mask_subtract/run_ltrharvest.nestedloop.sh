@@ -69,7 +69,7 @@ else
 fi
 
 ## index this fasta
-if [ ! -s $GENOMEBASE.substract1.md5 ]; then
+if [ ! -s $GENOMEBASE.subtract1.md5 ]; then
   echo "$(date +'%r'): Running Suffixerator to make genome index."
   $GENOMETOOLS suffixerator -db ${GENOMEBASE}.subtract1.fa -indexname ${GENOMEBASE}.subtract1 -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
   echo "$(date +'%r'): Done."
