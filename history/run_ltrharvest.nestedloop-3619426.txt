@@ -1,0 +1,1 @@
+Error: The genome file /rhome/arajewski/shared/Nobtusifolia/Genome_Files/NIOBT_r1.0.fasta.fai has no valid entries. Exiting.

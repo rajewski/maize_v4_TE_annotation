@@ -1,0 +1,7 @@
+06:05:40 PM: Contig names from initial GFF3 have already been converted. Skipping to indexing.
+06:05:40 PM: Indexing of genome is already complete. Skipping to complementing.
+06:05:40 PM: Complement already created. So let's make a FASTA file of those areas.
+06:05:40 PM: Subtracted FASTA already created. Let's move on to indexing it.
+06:05:40 PM: Running Suffixerator to make genome index.
+06:17:05 PM: Done.
+06:17:05 PM: Running LTR Harvest.

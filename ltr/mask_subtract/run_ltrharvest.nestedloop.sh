@@ -1,7 +1,9 @@
+#!/bin/bash -l
 #SBATCH -o ../../history/run_ltrharvest.nestedloop-%A.txt
 #SBATCH --ntasks=16
 #SBATCH --nodes=1
-#SBATCH --mem=96G
+#SBATCH --time=20:00:00
+#SBATCH --mem=101G
 #SBATCH --mail-user=araje002@ucr.edu
 #SBATCH --mail-type=all
 set -eu
@@ -19,27 +21,58 @@ GENOMEFASTA=~/shared/Nobtusifolia/Genome_Files/NIOBT_r1.0.fasta
 i=1
 
 ##### Set up first substraction becuase it needs some tweaks before we can make it routine
-python convert_ltrharvest_seq_gff_to_contignames.py ../${GENOMEBASE}.ltrharvest.gff3 > ${GENOMEBASE}.ltrharvest.contignames.gff3
-grep --no-group-separator -B2 -A1 "LTR_retrotransposon	" ${GENOMEBASE}.ltrharvest.contignames.gff3 | sed -n '1~2p' > ${GENOMEBASE}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3
-## make an index for the r script and bedtools complement
-samtools faidx $GENOMEFASTA
-awk -v OFS='\t' '{print $1, $2}' $GENOMEFASTA.fai > $GENOMEFASTA.2.fai
-mv $GENOMEFASTA.2.fai $GENOMEFASTA.fai
-bedtools complement -i ${GENOMEBASE}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 -g $GENOMEFASTA.fai > ${GENOMEBASE}.ltrharvest.contignames.NOTltrretrotransposon.gff3
+if [ ! -e ${GENOMEBASE}.ltrharvest.contignames.gff3 ]; then
+  echo "$(date +'%r'): Converting GFF3 from initial search to have proper contig names."
+  python convert_ltrharvest_seq_gff_to_contignames.py ../${GENOMEBASE}.ltrharvest.gff3 > ${GENOMEBASE}.ltrharvest.contignames.gff3
+  echo "$(date +'%r'): Done."
+else
+  echo "$(date +'%r'): Contig names from initial GFF3 have already been converted. Skipping to indexing."
+fi
 
-## generate a subtracted fasta
-grep -Pv "scaffold\d*\t0\t0" $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 > $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 #fix the gff with 0 start and end lines
-mv $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 #clean stuff up
-bedtools getfasta -fi $GENOMEFASTA -bed ${GENOMEBASE}.ltrharvest.contignames.NOTltrretrotransposon.gff3 -fo ${GENOMEBASE}.subtract1.fa
+if [ ! -e ${GENOMEBASE}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 ]; then
+  echo "$(date +'%r'): But first let me grep out the TSDs from the GFF3, to bound the subtraction were about to do."
+  grep --no-group-separator -B2 -A1 "LTR_retrotransposon	" ${GENOMEBASE}.ltrharvest.contignames.gff3 | sed -n '1~2p' > ${GENOMEBASE}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3
+  echo "$(date +'%r'): Done"
+fi
 
-## concatenate the entries by chromosome
-python collapse_chromosomes.py ${GENOMEBASE}.subtract1.fa > ${GENOMEBASE}.temp
-mv ${GENOMEBASE}.temp ${GENOMEBASE}.subtract1.fa
+if [ ! -e $GENOMEFASTA.2.fai ]; then
+  echo "$(date +'%r'): Starting index creation with samtools."
+  ## make an index for the r script and bedtools complement
+  samtools faidx $GENOMEFASTA
+  echo "$(date +'%r'): Index is done, now let's grab just the columns that bedtools will need."
+  awk -v OFS='\t' '{print $1, $2}' $GENOMEFASTA.fai > $GENOMEFASTA.2.fai
+  # mv $GENOMEFASTA.2.fai $GENOMEFASTA.fai #for some reason moving the file breaks this
+else
+  echo "$(date +'%r'): Indexing of genome is already complete. Skipping to complementing."
+fi
+
+if [ ! -e ${GENOMEBASE}.ltrharvest.contignames.NOTltrretrotransposon.gff3 ]; then
+  echo "$(date +'%r'): Using bedtools to generate a list of where the LTRs are NOT located."
+  bedtools complement -i ${GENOMEBASE}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 -g $GENOMEFASTA.2.fai > ${GENOMEBASE}.ltrharvest.contignames.NOTltrretrotransposon.gff3
+  grep -Pv "scaffold\d*\t0\t0" $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 > $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 #fix the gff with 0 start and end lines
+  mv $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 #clean stuff up
+  echo "$(date +'%r'): Done."
+else
+  echo  "$(date +'%r'): Complement already created. So let's make a FASTA file of those areas."
+fi
+
+if [ ! -e ${GENOMEBASE}.subtract1.fa ]; then
+  ## generate a subtracted fasta
+  echo "$(date +'%r'): Creating a subtracted FASTA for the next round of searching."
+  bedtools getfasta -fi $GENOMEFASTA -bed ${GENOMEBASE}.ltrharvest.contignames.NOTltrretrotransposon.gff3 -fo ${GENOMEBASE}.subtract1.fa
+  ## concatenate the entries by chromosome
+  python collapse_chromosomes.py ${GENOMEBASE}.subtract1.fa > ${GENOMEBASE}.temp
+  mv ${GENOMEBASE}.temp ${GENOMEBASE}.subtract1.fa
+  echo "$(date +'%r'): Done."
+else
+  echo "$(date +'%r'): Subtracted FASTA already created. Let's move on to indexing it."
+fi
 
 ## index this fasta
 if [ ! -s $GENOMEBASE.substract1.md5 ]; then
   echo "$(date +'%r'): Running Suffixerator to make genome index."
   $GENOMETOOLS suffixerator -db ${GENOMEBASE}.subtract1.fa -indexname ${GENOMEBASE}.subtract1 -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
+  echo "$(date +'%r'): Done."
 else
   echo "$(date +'%r'): First round subtracted genome already indexed. Skipping to LTR Harvest."
 fi
@@ -48,12 +81,13 @@ if [ ! -s subtract1/${GENOMEBASE}.subtract1.ltrharvest.gff3 ]; then
   echo "$(date +'%r'): Running LTR Harvest."
   mkdir -p subtract1
   $GENOMETOOLS ltrharvest -index ${GENOMEBASE}.subtract1 -gff3 subtract1/${GENOMEBASE}.subtract1.ltrharvest.gff3 -outinner subtract1/${GENOMEBASE}.subtract1.ltrharvest.outinner.fa -out subtract1/${GENOMEBASE}.subtract1.ltrharvest.fa > subtract1/${GENOMEBASE}.subtract1.ltrharvest.out
+  echo "$(date +'%r'): Done."
   echo "$(date +'%r'): Sorting the GFF3 file."
   $GENOMETOOLS gff3 -sort subtract1/${GENOMEBASE}.subtract1.ltrharvest.gff3 > subtract1/${GENOMEBASE}.subtract1.ltrharvest.sorted.gff3
+  echo "$(date +'%r'): Done."
 else
   echo "$(date +'%r'): First round subtraction LTR Harvest output file found, so I'm skipping ahead to round 2."
 fi
-
 
 ### Let the while loop work for 5 rounds. My genome is fragmented, so the original 100 rounds seems excessive
 #while [ grep -c ltr_retrotransposon ${GENOMEBASE}.hardmask${i}.ltrharvest.gff3 -gt 0 ]

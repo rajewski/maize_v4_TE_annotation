@@ -1,0 +1,2 @@
+Warning: malformed fasta index file /rhome/arajewski/shared/Nobtusifolia/Genome_Files/NIOBT_r1.0.fasta.faidoes not have enough fields @ line 1
+scaffold1	442014

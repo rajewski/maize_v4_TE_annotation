@@ -1,0 +1,2 @@
+06:04:01 PM: Contif names from initial GFF3 have already been converted. Skipping to indexing.
+/var/spool/slurmd/job3619498/slurm_script: line 37: syntax error near unexpected token `fi'
