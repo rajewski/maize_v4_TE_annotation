@@ -5,3 +5,7 @@
 06:05:40 PM: Running Suffixerator to make genome index.
 06:17:05 PM: Done.
 06:17:05 PM: Running LTR Harvest.
+06:20:02 PM: Done.
+06:20:02 PM: Sorting the GFF3 file.
+06:20:02 PM: Done.
+/var/spool/slurmd/job3619500/slurm_script: line 168: syntax error near unexpected token `done'

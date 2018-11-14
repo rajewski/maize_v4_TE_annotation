@@ -116,6 +116,7 @@ do
   if [ ! -s ${GENOMEFASTA}.fa.fai ]; then
     echo "$(date +'%r'): Indexing ${GENOMEFASTA} for subtraction."
     samtools faidx ${GENOMEFASTA}
+    awk -v OFS='\t' '{print $1, $2}' $GENOMEFASTA.fai > $GENOMEFASTA.2.fai
     echo "$(date +'%r'): Done."
   else
     echo "$(date +'%r'): ${GENOMEFASTA} already indexed. I'm skipping to subtracting from the gff3."
@@ -124,7 +125,7 @@ do
   if [ ! -s subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3 ]; then
     echo "$(date +'%r'): Locating previously identified TEs in round $OLDINDEX gff3."
     ## find regions not covered by TEs
-    bedtools complement -i subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 -g ${GENOME}.fa.fai > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3
+    bedtools complement -i subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 -g ${GENOME}.fa.2.fai > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3
     ## clean up the extra columns in this file
     grep -Pv "scaffold\d*\t0\t0" subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3 > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.1.gff3
     mv subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.1.gff3 subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3
@@ -165,6 +166,7 @@ do
     echo "$(date +'%r'): Done identifying TEs from ${NEWGENOMEFASTA}."
   else
     echo "$(date +'%r'): TEs from ${NEWGENOMEFASTA} already located. Moving on."
+  fi
 done
 
 
