@@ -49,7 +49,7 @@ fi
 if [ ! -e ${GENOMEBASE}.ltrharvest.contignames.NOTltrretrotransposon.gff3 ]; then
   echo "$(date +'%r'): Using bedtools to generate a list of where the LTRs are NOT located."
   bedtools complement -i ${GENOMEBASE}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 -g $GENOMEFASTA.2.fai > ${GENOMEBASE}.ltrharvest.contignames.NOTltrretrotransposon.gff3
-  grep -Pv "scaffold\d*\t0\t0" $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 > $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 #fix the gff with 0 start and end lines
+  grep -Pv "scaffold\d*:\d*-\d*\t0\t0" $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 > $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 #fix the gff with 0 start and end lines
   mv $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 #clean stuff up
   echo "$(date +'%r'): Done."
 else
@@ -149,7 +149,7 @@ do
     ### index this fasta
     echo "$(date +'%r'): Indexing ${NEWGENOMEFASTA}"
     $GENOMETOOLS suffixerator -db ${NEWGENOMEFASTA} -indexname ${NEWGENOME} -tis -suf -lcp -des -ssp -sds -dna -memlimit $MEMLIM
-    echo "Done"
+    echo "$(date +'%r'): Done"
   else
     echo "$(date +'%r'): ${NEWGENOMEFASTA} already indexed. Skipping to running LTR harvest."
   fi
@@ -170,12 +170,7 @@ do
   
 done
 
-while [ $i -le 5 ]
-do
-  echo "$i is the number."
-  i=$(( $i + 1 ))
-done
-
+echo "$(date +'%r'): I'm done. Officially."
 
 
 # 10 Nov 18, this is probably not necessary below:
