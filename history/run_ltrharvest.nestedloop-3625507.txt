@@ -1,0 +1,11 @@
+03:32:22 PM: Converting GFF3 from initial search to have proper contig names.
+03:32:39 PM: Done.
+03:32:39 PM: But first let me grep out the repeat regions from the GFF3, to bound the subtraction were about to do.
+03:32:39 PM: Done
+03:32:39 PM: Indexing of genome is already complete. Skipping to complementing.
+03:32:39 PM: Using bedtools to generate a list of where the LTRs are NOT located.
+03:32:40 PM: Done.
+03:32:40 PM: Creating a subtracted FASTA for the next round of searching.
+Feature (scaffold28891:1177-1177) has length = 0, Skipping.
+03:33:14 PM: Done.
+03:33:14 PM: Running Suffixerator to make genome index.

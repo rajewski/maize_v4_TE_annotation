@@ -49,8 +49,10 @@ fi
 if [ ! -e ${GENOMEBASE}.ltrharvest.contignames.NOTltrretrotransposon.gff3 ]; then
   echo "$(date +'%r'): Using bedtools to generate a list of where the LTRs are NOT located."
   bedtools complement -i ${GENOMEBASE}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 -g $GENOMEFASTA.2.fai > ${GENOMEBASE}.ltrharvest.contignames.NOTltrretrotransposon.gff3
-  grep -Pv "scaffold\d*:\d*-\d*\t0\t0" $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 > $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 #fix the gff with 0 start and end lines
-  mv $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 #clean stuff up
+  grep -Pv "scaffold\d*\t0\t0" $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 > $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 #fix the gff with 0 start and end lines
+  awk '$2>$3{tmp = $3; $3=$2; $2=tmp;}; {print $1 "\t" $2 "\t" $3 }' $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 > $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 #flip columns that are backwards
+  #mv $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 #clean stuff up, not necessary because the awk command does this at the same time
+  rm $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 #nut now this is necessary instead of the mv
   echo "$(date +'%r'): Done."
 else
   echo  "$(date +'%r'): Complement already created. So let's make a FASTA file of those areas."

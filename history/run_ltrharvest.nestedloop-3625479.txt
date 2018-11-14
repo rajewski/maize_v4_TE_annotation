@@ -1,0 +1,9 @@
+03:17:59 PM: Converting GFF3 from initial search to have proper contig names.
+03:18:14 PM: Done.
+03:18:14 PM: But first let me grep out the repeat regions from the GFF3, to bound the subtraction were about to do.
+03:18:14 PM: Done
+03:18:14 PM: Indexing of genome is already complete. Skipping to complementing.
+03:18:14 PM: Using bedtools to generate a list of where the LTRs are NOT located.
+03:18:15 PM: Done.
+03:18:15 PM: Creating a subtracted FASTA for the next round of searching.
+It looks as though you have less than 3 columns at line: 1.  Are you sure your files are tab-delimited?

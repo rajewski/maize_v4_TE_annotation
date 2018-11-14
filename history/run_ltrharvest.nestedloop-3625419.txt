@@ -1,0 +1,9 @@
+02:53:46 PM: Converting GFF3 from initial search to have proper contig names.
+02:54:01 PM: Done.
+02:54:01 PM: But first let me grep out the repeat regions from the GFF3, to bound the subtraction were about to do.
+02:54:02 PM: Done
+02:54:02 PM: Indexing of genome is already complete. Skipping to complementing.
+02:54:02 PM: Using bedtools to generate a list of where the LTRs are NOT located.
+02:54:02 PM: Done.
+02:54:02 PM: Creating a subtracted FASTA for the next round of searching.
+Error: malformed BED entry at line 65424. Start was greater than end. Exiting.
