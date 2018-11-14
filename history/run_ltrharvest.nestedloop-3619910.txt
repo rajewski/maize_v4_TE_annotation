@@ -1,0 +1,12 @@
+06:31:51 PM: Contig names from initial GFF3 have already been converted. Skipping to indexing.
+06:31:51 PM: Indexing of genome is already complete. Skipping to complementing.
+06:31:51 PM: Complement already created. So let's make a FASTA file of those areas.
+06:31:51 PM: Subtracted FASTA already created. Let's move on to indexing it.
+06:31:51 PM: Running Suffixerator to make genome index.
+06:43:15 PM: Done.
+06:43:15 PM: First round subtraction LTR Harvest output file found, so I'm skipping ahead to round 2.
+06:43:15 PM: Running round 2 subtraction.
+06:43:15 PM: Indexing NIOBT_r1.0.subtract1.fa for subtraction.
+06:43:20 PM: Done.
+06:43:20 PM: Locating previously identified TEs in round 1 gff3.
+Error: The genome file NIOBT_r1.0.subtract1.fa.fai has no valid entries. Exiting.

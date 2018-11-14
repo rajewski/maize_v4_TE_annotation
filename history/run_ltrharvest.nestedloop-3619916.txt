@@ -1,0 +1,12 @@
+06:51:15 PM: Contig names from initial GFF3 have already been converted. Skipping to indexing.
+06:51:15 PM: Indexing of genome is already complete. Skipping to complementing.
+06:51:15 PM: Complement already created. So let's make a FASTA file of those areas.
+06:51:15 PM: Subtracted FASTA already created. Let's move on to indexing it.
+06:51:15 PM: Running Suffixerator to make genome index.
+07:04:49 PM: Done.
+07:04:49 PM: First round subtraction LTR Harvest output file found, so I'm skipping ahead to round 2.
+07:04:49 PM: Running round 2 subtraction.
+07:04:49 PM: Indexing NIOBT_r1.0.subtract1.fa for subtraction.
+07:04:54 PM: Done.
+07:04:54 PM: Locating previously identified TEs in round 1 gff3.
+/var/spool/slurmd/job3619916/slurm_script: line 170: 11469 Segmentation fault      bedtools complement -i subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 -g ${GENOME}.fa.2.fai > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3

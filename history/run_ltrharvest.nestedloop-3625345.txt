@@ -1,0 +1,15 @@
+02:20:18 PM: Contig names from initial GFF3 have already been converted. Skipping to indexing.
+02:20:18 PM: Indexing of genome is already complete. Skipping to complementing.
+02:20:18 PM: Complement already created. So let's make a FASTA file of those areas.
+02:20:18 PM: Subtracted FASTA already created. Let's move on to indexing it.
+02:20:18 PM: First round subtracted genome already indexed. Skipping to LTR Harvest.
+02:20:18 PM: Running LTR Harvest.
+02:22:41 PM: Done.
+02:22:41 PM: Sorting the GFF3 file.
+02:22:41 PM: Done.
+02:22:41 PM: Running round 2 subtraction.
+02:22:42 PM: Indexing NIOBT_r1.0.subtract1.fa for subtraction.
+02:22:47 PM: Done.
+02:22:47 PM: Locating previously identified TEs in round 1 gff3.
+02:22:47 PM: Done.
+Error: malformed BED entry at line 1850. Start was greater than end. Exiting.

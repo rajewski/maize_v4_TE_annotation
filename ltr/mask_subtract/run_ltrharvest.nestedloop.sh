@@ -30,8 +30,8 @@ else
 fi
 
 if [ ! -e ${GENOMEBASE}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 ]; then
-  echo "$(date +'%r'): But first let me grep out the TSDs from the GFF3, to bound the subtraction were about to do."
-  grep --no-group-separator -B2 -A1 "LTR_retrotransposon	" ${GENOMEBASE}.ltrharvest.contignames.gff3 | sed -n '1~2p' > ${GENOMEBASE}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3
+  echo "$(date +'%r'): But first let me grep out the repeat regions from the GFF3, to bound the subtraction were about to do."
+  grep --no-group-separator -B2 -A1 -P "LTR_retrotransposon\t" ${GENOMEBASE}.ltrharvest.contignames.gff3 | sed -n '1~2p' > ${GENOMEBASE}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3
   echo "$(date +'%r'): Done"
 fi
 
@@ -111,7 +111,7 @@ do
   fi
   
   ## only get the LTR_retrotransposon records to keep Rscript from repeating computation
-  grep --no-group-separator -B2 -A1 "LTR_retrotransposon\t" subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.gff3 | sed -n '1~2p' > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3
+  grep --no-group-separator -B2 -A1 -P "LTR_retrotransposon\t" subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.gff3 | sed -n '1~2p' > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3
   ## make an index for the r script and bedtools complement
   if [ ! -s ${GENOMEFASTA}.fa.fai ]; then
     echo "$(date +'%r'): Indexing ${GENOMEFASTA} for subtraction."
@@ -126,8 +126,8 @@ do
     echo "$(date +'%r'): Locating previously identified TEs in round $OLDINDEX gff3."
     ## find regions not covered by TEs
     bedtools complement -i subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 -g ${GENOME}.fa.2.fai > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3
-    ## clean up the extra columns in this file
-    grep -Pv "scaffold\d*\t0\t0" subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3 > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.1.gff3
+    ## clean up the 0 lines in this file
+    grep -Pv "scaffold\d*:\d*-\d*\t0\t0" subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3 > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.1.gff3
     mv subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.1.gff3 subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3
     echo "$(date +'%r'): Done."
   else
@@ -167,6 +167,13 @@ do
   else
     echo "$(date +'%r'): TEs from ${NEWGENOMEFASTA} already located. Moving on."
   fi
+  
+done
+
+while [ $i -le 5 ]
+do
+  echo "$i is the number."
+  i=$(( $i + 1 ))
 done
 
 
