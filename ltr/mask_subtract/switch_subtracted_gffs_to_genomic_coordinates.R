@@ -3,7 +3,7 @@ library(rtracklayer)
 maxSubtract=80
 maxSubtract=as.numeric(commandArgs(trailingOnly=TRUE))
 
-GENOMENAME='B73V4.pseudomolecule'
+GENOMENAME='NIOBT_r1.0'
 
 ### use the samtools faidx generated index to know the length of each contig/chromosome
 gs=read.table(paste('../../', GENOMENAME, '.fasta.fai', sep=''), sep='\t', header=F)
