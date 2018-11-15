@@ -9,3 +9,14 @@
 Feature (scaffold28891:1177-1177) has length = 0, Skipping.
 03:33:14 PM: Done.
 03:33:14 PM: Running Suffixerator to make genome index.
+03:47:11 PM: Done.
+03:47:11 PM: Running LTR Harvest.
+03:50:29 PM: Done.
+03:50:29 PM: Sorting the GFF3 file.
+03:50:29 PM: Done.
+03:50:29 PM: Running round 2 subtraction.
+03:50:31 PM: Indexing NIOBT_r1.0.subtract1.fa for subtraction.
+03:50:36 PM: Done.
+03:50:36 PM: Locating previously identified TEs in round 1 gff3.
+03:50:36 PM: Done.
+Error: malformed BED entry at line 8026. Start was greater than end. Exiting.

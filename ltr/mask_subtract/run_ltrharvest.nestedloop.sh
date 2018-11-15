@@ -50,7 +50,7 @@ if [ ! -e ${GENOMEBASE}.ltrharvest.contignames.NOTltrretrotransposon.gff3 ]; the
   echo "$(date +'%r'): Using bedtools to generate a list of where the LTRs are NOT located."
   bedtools complement -i ${GENOMEBASE}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 -g $GENOMEFASTA.2.fai > ${GENOMEBASE}.ltrharvest.contignames.NOTltrretrotransposon.gff3
   grep -Pv "scaffold\d*\t0\t0" $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 > $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 #fix the gff with 0 start and end lines
-  awk '$2>$3{tmp = $3; $3=$2; $2=tmp;}; {print $1 "\t" $2 "\t" $3 }' $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 > $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 #flip columns that are backwards
+  awk '$2>$3{tmp = $3; $3=$2; $2=tmp;}; {print $1 "\t" $2 "\t" $3 }' $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 > $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 #flip columns that are backwards (http://www.metagenomics.wiki/tools/ubuntu-linux/awk)
   #mv $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.gff3 #clean stuff up, not necessary because the awk command does this at the same time
   rm $GENOMEBASE.ltrharvest.contignames.NOTltrretrotransposon.2.gff3 #nut now this is necessary instead of the mv
   echo "$(date +'%r'): Done."
@@ -129,7 +129,9 @@ do
     ## find regions not covered by TEs
     bedtools complement -i subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.tsd.ltrretrotransposon.gff3 -g ${GENOME}.fa.2.fai > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3
     ## clean up the 0 lines in this file
-    grep -Pv "scaffold\d*:\d*-\d*\t0\t0" subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3 > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.1.gff3
+    grep -Pv "\t0\t0" subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3 > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.1.gff3
+    #awk '$2>$3{tmp = $3; $3=$2; $2=tmp;}; {print $1 "\t" $2 "\t" $3 }' subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.1.gff3 > subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3 #flip columns that are backwards (http://www.metagenomics.wiki/tools/ubuntu-linux/awk)
+    #rm subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.1.gff3 # remove instead of mv
     mv subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.1.gff3 subtract${OLDINDEX}/${GENOME}.ltrharvest.contignames.NOTltrretrotransposon.gff3
     echo "$(date +'%r'): Done."
   else

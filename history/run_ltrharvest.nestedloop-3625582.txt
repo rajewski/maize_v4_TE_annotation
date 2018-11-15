@@ -1,0 +1,16 @@
+04:23:43 PM: Contig names from initial GFF3 have already been converted. Skipping to indexing.
+04:23:43 PM: Indexing of genome is already complete. Skipping to complementing.
+04:23:43 PM: Complement already created. So let's make a FASTA file of those areas.
+04:23:43 PM: Subtracted FASTA already created. Let's move on to indexing it.
+04:23:43 PM: First round subtracted genome already indexed. Skipping to LTR Harvest.
+04:23:43 PM: Running LTR Harvest.
+04:27:22 PM: Done.
+04:27:22 PM: Sorting the GFF3 file.
+04:27:23 PM: Done.
+04:27:23 PM: Running round 2 subtraction.
+04:27:24 PM: Indexing NIOBT_r1.0.subtract1.fa for subtraction.
+04:27:30 PM: Done.
+04:27:30 PM: Locating previously identified TEs in round 1 gff3.
+04:27:30 PM: Done.
+04:27:59 PM: NIOBT_r1.0.subtract2.fa successfully created and gaps from round 1 TEs closed.
+04:27:59 PM: Indexing NIOBT_r1.0.subtract2.fa
