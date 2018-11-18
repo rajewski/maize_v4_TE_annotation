@@ -1,0 +1,201 @@
+11:28:36 PM: Running round 12 subtraction.
+11:28:36 PM: Indexing NIOBT_r1.0.subtract11.fa for subtraction.
+11:28:43 PM: Done.
+11:28:43 PM: Locating previously identified TEs in round 11 gff3.
+11:28:43 PM: Done.
+11:29:12 PM: NIOBT_r1.0.subtract12.fa successfully created and gaps from round 11 TEs closed.
+11:29:12 PM: Indexing NIOBT_r1.0.subtract12.fa
+11:41:34 PM: Done
+11:41:34 PM: Running LTR Harvest on NIOBT_r1.0.subtract12.fa
+11:43:50 PM: Done identifying TEs from NIOBT_r1.0.subtract12.fa.
+11:43:50 PM: Running round 13 subtraction.
+11:43:51 PM: Indexing NIOBT_r1.0.subtract12.fa for subtraction.
+11:43:57 PM: Done.
+11:43:57 PM: Locating previously identified TEs in round 12 gff3.
+11:43:58 PM: Done.
+11:44:26 PM: NIOBT_r1.0.subtract13.fa successfully created and gaps from round 12 TEs closed.
+11:44:26 PM: Indexing NIOBT_r1.0.subtract13.fa
+11:56:54 PM: Done
+11:56:54 PM: Running LTR Harvest on NIOBT_r1.0.subtract13.fa
+11:59:13 PM: Done identifying TEs from NIOBT_r1.0.subtract13.fa.
+11:59:13 PM: Running round 14 subtraction.
+11:59:13 PM: Indexing NIOBT_r1.0.subtract13.fa for subtraction.
+11:59:18 PM: Done.
+11:59:18 PM: Locating previously identified TEs in round 13 gff3.
+11:59:18 PM: Done.
+11:59:45 PM: NIOBT_r1.0.subtract14.fa successfully created and gaps from round 13 TEs closed.
+11:59:45 PM: Indexing NIOBT_r1.0.subtract14.fa
+12:10:19 AM: Done
+12:10:19 AM: Running LTR Harvest on NIOBT_r1.0.subtract14.fa
+12:12:43 AM: Done identifying TEs from NIOBT_r1.0.subtract14.fa.
+12:12:43 AM: Running round 15 subtraction.
+12:12:43 AM: Indexing NIOBT_r1.0.subtract14.fa for subtraction.
+12:12:49 AM: Done.
+12:12:49 AM: Locating previously identified TEs in round 14 gff3.
+12:12:50 AM: Done.
+12:13:18 AM: NIOBT_r1.0.subtract15.fa successfully created and gaps from round 14 TEs closed.
+12:13:18 AM: Indexing NIOBT_r1.0.subtract15.fa
+12:23:35 AM: Done
+12:23:35 AM: Running LTR Harvest on NIOBT_r1.0.subtract15.fa
+12:25:33 AM: Done identifying TEs from NIOBT_r1.0.subtract15.fa.
+12:25:33 AM: Running round 16 subtraction.
+12:25:33 AM: Indexing NIOBT_r1.0.subtract15.fa for subtraction.
+12:25:37 AM: Done.
+12:25:37 AM: Locating previously identified TEs in round 15 gff3.
+12:25:37 AM: Done.
+12:26:03 AM: NIOBT_r1.0.subtract16.fa successfully created and gaps from round 15 TEs closed.
+12:26:03 AM: Indexing NIOBT_r1.0.subtract16.fa
+12:36:17 AM: Done
+12:36:17 AM: Running LTR Harvest on NIOBT_r1.0.subtract16.fa
+12:38:16 AM: Done identifying TEs from NIOBT_r1.0.subtract16.fa.
+12:38:16 AM: Running round 17 subtraction.
+12:38:16 AM: Indexing NIOBT_r1.0.subtract16.fa for subtraction.
+12:38:22 AM: Done.
+12:38:22 AM: Locating previously identified TEs in round 16 gff3.
+12:38:23 AM: Done.
+12:38:50 AM: NIOBT_r1.0.subtract17.fa successfully created and gaps from round 16 TEs closed.
+12:38:50 AM: Indexing NIOBT_r1.0.subtract17.fa
+12:49:05 AM: Done
+12:49:05 AM: Running LTR Harvest on NIOBT_r1.0.subtract17.fa
+12:51:28 AM: Done identifying TEs from NIOBT_r1.0.subtract17.fa.
+12:51:28 AM: Running round 18 subtraction.
+12:51:28 AM: Indexing NIOBT_r1.0.subtract17.fa for subtraction.
+12:51:34 AM: Done.
+12:51:34 AM: Locating previously identified TEs in round 17 gff3.
+12:51:34 AM: Done.
+12:52:02 AM: NIOBT_r1.0.subtract18.fa successfully created and gaps from round 17 TEs closed.
+12:52:02 AM: Indexing NIOBT_r1.0.subtract18.fa
+01:05:02 AM: Done
+01:05:02 AM: Running LTR Harvest on NIOBT_r1.0.subtract18.fa
+01:07:04 AM: Done identifying TEs from NIOBT_r1.0.subtract18.fa.
+01:07:04 AM: Running round 19 subtraction.
+01:07:04 AM: Indexing NIOBT_r1.0.subtract18.fa for subtraction.
+01:07:10 AM: Done.
+01:07:10 AM: Locating previously identified TEs in round 18 gff3.
+01:07:10 AM: Done.
+01:07:38 AM: NIOBT_r1.0.subtract19.fa successfully created and gaps from round 18 TEs closed.
+01:07:38 AM: Indexing NIOBT_r1.0.subtract19.fa
+01:17:53 AM: Done
+01:17:53 AM: Running LTR Harvest on NIOBT_r1.0.subtract19.fa
+01:20:18 AM: Done identifying TEs from NIOBT_r1.0.subtract19.fa.
+01:20:18 AM: Running round 20 subtraction.
+01:20:18 AM: Indexing NIOBT_r1.0.subtract19.fa for subtraction.
+01:20:25 AM: Done.
+01:20:25 AM: Locating previously identified TEs in round 19 gff3.
+01:20:25 AM: Done.
+01:20:53 AM: NIOBT_r1.0.subtract20.fa successfully created and gaps from round 19 TEs closed.
+01:20:53 AM: Indexing NIOBT_r1.0.subtract20.fa
+01:31:35 AM: Done
+01:31:35 AM: Running LTR Harvest on NIOBT_r1.0.subtract20.fa
+01:33:40 AM: Done identifying TEs from NIOBT_r1.0.subtract20.fa.
+01:33:40 AM: Running round 21 subtraction.
+01:33:40 AM: Indexing NIOBT_r1.0.subtract20.fa for subtraction.
+01:33:45 AM: Done.
+01:33:45 AM: Locating previously identified TEs in round 20 gff3.
+01:33:46 AM: Done.
+01:34:12 AM: NIOBT_r1.0.subtract21.fa successfully created and gaps from round 20 TEs closed.
+01:34:12 AM: Indexing NIOBT_r1.0.subtract21.fa
+01:46:58 AM: Done
+01:46:58 AM: Running LTR Harvest on NIOBT_r1.0.subtract21.fa
+01:49:25 AM: Done identifying TEs from NIOBT_r1.0.subtract21.fa.
+01:49:25 AM: Running round 22 subtraction.
+01:49:25 AM: Indexing NIOBT_r1.0.subtract21.fa for subtraction.
+01:49:31 AM: Done.
+01:49:31 AM: Locating previously identified TEs in round 21 gff3.
+01:49:32 AM: Done.
+01:50:00 AM: NIOBT_r1.0.subtract22.fa successfully created and gaps from round 21 TEs closed.
+01:50:00 AM: Indexing NIOBT_r1.0.subtract22.fa
+02:00:54 AM: Done
+02:00:54 AM: Running LTR Harvest on NIOBT_r1.0.subtract22.fa
+02:02:58 AM: Done identifying TEs from NIOBT_r1.0.subtract22.fa.
+02:02:58 AM: Running round 23 subtraction.
+02:02:58 AM: Indexing NIOBT_r1.0.subtract22.fa for subtraction.
+02:03:04 AM: Done.
+02:03:04 AM: Locating previously identified TEs in round 22 gff3.
+02:03:04 AM: Done.
+02:03:33 AM: NIOBT_r1.0.subtract23.fa successfully created and gaps from round 22 TEs closed.
+02:03:33 AM: Indexing NIOBT_r1.0.subtract23.fa
+02:13:41 AM: Done
+02:13:41 AM: Running LTR Harvest on NIOBT_r1.0.subtract23.fa
+02:16:13 AM: Done identifying TEs from NIOBT_r1.0.subtract23.fa.
+02:16:13 AM: Running round 24 subtraction.
+02:16:13 AM: Indexing NIOBT_r1.0.subtract23.fa for subtraction.
+02:16:19 AM: Done.
+02:16:19 AM: Locating previously identified TEs in round 23 gff3.
+02:16:20 AM: Done.
+02:16:47 AM: NIOBT_r1.0.subtract24.fa successfully created and gaps from round 23 TEs closed.
+02:16:47 AM: Indexing NIOBT_r1.0.subtract24.fa
+02:28:18 AM: Done
+02:28:18 AM: Running LTR Harvest on NIOBT_r1.0.subtract24.fa
+02:30:24 AM: Done identifying TEs from NIOBT_r1.0.subtract24.fa.
+02:30:24 AM: Running round 25 subtraction.
+02:30:24 AM: Indexing NIOBT_r1.0.subtract24.fa for subtraction.
+02:30:29 AM: Done.
+02:30:29 AM: Locating previously identified TEs in round 24 gff3.
+02:30:29 AM: Done.
+02:30:56 AM: NIOBT_r1.0.subtract25.fa successfully created and gaps from round 24 TEs closed.
+02:30:56 AM: Indexing NIOBT_r1.0.subtract25.fa
+02:41:06 AM: Done
+02:41:06 AM: Running LTR Harvest on NIOBT_r1.0.subtract25.fa
+02:43:36 AM: Done identifying TEs from NIOBT_r1.0.subtract25.fa.
+02:43:36 AM: Running round 26 subtraction.
+02:43:36 AM: Indexing NIOBT_r1.0.subtract25.fa for subtraction.
+02:43:41 AM: Done.
+02:43:41 AM: Locating previously identified TEs in round 25 gff3.
+02:43:41 AM: Done.
+02:44:07 AM: NIOBT_r1.0.subtract26.fa successfully created and gaps from round 25 TEs closed.
+02:44:07 AM: Indexing NIOBT_r1.0.subtract26.fa
+02:54:55 AM: Done
+02:54:55 AM: Running LTR Harvest on NIOBT_r1.0.subtract26.fa
+02:57:07 AM: Done identifying TEs from NIOBT_r1.0.subtract26.fa.
+02:57:07 AM: Running round 27 subtraction.
+02:57:07 AM: Indexing NIOBT_r1.0.subtract26.fa for subtraction.
+02:57:13 AM: Done.
+02:57:13 AM: Locating previously identified TEs in round 26 gff3.
+02:57:13 AM: Done.
+02:57:41 AM: NIOBT_r1.0.subtract27.fa successfully created and gaps from round 26 TEs closed.
+02:57:41 AM: Indexing NIOBT_r1.0.subtract27.fa
+03:09:48 AM: Done
+03:09:48 AM: Running LTR Harvest on NIOBT_r1.0.subtract27.fa
+03:12:13 AM: Done identifying TEs from NIOBT_r1.0.subtract27.fa.
+03:12:13 AM: Running round 28 subtraction.
+03:12:13 AM: Indexing NIOBT_r1.0.subtract27.fa for subtraction.
+03:12:19 AM: Done.
+03:12:19 AM: Locating previously identified TEs in round 27 gff3.
+03:12:19 AM: Done.
+03:12:46 AM: NIOBT_r1.0.subtract28.fa successfully created and gaps from round 27 TEs closed.
+03:12:46 AM: Indexing NIOBT_r1.0.subtract28.fa
+03:22:52 AM: Done
+03:22:52 AM: Running LTR Harvest on NIOBT_r1.0.subtract28.fa
+03:25:25 AM: Done identifying TEs from NIOBT_r1.0.subtract28.fa.
+03:25:25 AM: Running round 29 subtraction.
+03:25:25 AM: Indexing NIOBT_r1.0.subtract28.fa for subtraction.
+03:25:30 AM: Done.
+03:25:30 AM: Locating previously identified TEs in round 28 gff3.
+03:25:30 AM: Done.
+03:25:56 AM: NIOBT_r1.0.subtract29.fa successfully created and gaps from round 28 TEs closed.
+03:25:56 AM: Indexing NIOBT_r1.0.subtract29.fa
+03:35:58 AM: Done
+03:35:58 AM: Running LTR Harvest on NIOBT_r1.0.subtract29.fa
+03:38:06 AM: Done identifying TEs from NIOBT_r1.0.subtract29.fa.
+03:38:06 AM: Running round 30 subtraction.
+03:38:06 AM: Indexing NIOBT_r1.0.subtract29.fa for subtraction.
+03:38:12 AM: Done.
+03:38:12 AM: Locating previously identified TEs in round 29 gff3.
+03:38:12 AM: Done.
+03:38:40 AM: NIOBT_r1.0.subtract30.fa successfully created and gaps from round 29 TEs closed.
+03:38:40 AM: Indexing NIOBT_r1.0.subtract30.fa
+03:49:58 AM: Done
+03:49:58 AM: Running LTR Harvest on NIOBT_r1.0.subtract30.fa
+03:52:26 AM: Done identifying TEs from NIOBT_r1.0.subtract30.fa.
+03:52:26 AM: Running round 31 subtraction.
+03:52:26 AM: Indexing NIOBT_r1.0.subtract30.fa for subtraction.
+03:52:32 AM: Done.
+03:52:32 AM: Locating previously identified TEs in round 30 gff3.
+03:52:32 AM: Done.
+03:52:59 AM: NIOBT_r1.0.subtract31.fa successfully created and gaps from round 30 TEs closed.
+03:52:59 AM: Indexing NIOBT_r1.0.subtract31.fa
+04:04:25 AM: Done
+04:04:25 AM: Running LTR Harvest on NIOBT_r1.0.subtract31.fa
+04:06:47 AM: Done identifying TEs from NIOBT_r1.0.subtract31.fa.
+04:06:47 AM: I'm done. Officially.

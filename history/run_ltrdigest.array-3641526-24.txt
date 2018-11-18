@@ -1,0 +1,1 @@
+slurmstepd-h02: error: *** JOB 3641526 ON h02 CANCELLED AT 2018-11-18T11:44:03 ***
