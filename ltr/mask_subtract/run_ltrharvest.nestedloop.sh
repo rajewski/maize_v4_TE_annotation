@@ -82,7 +82,7 @@ fi
 if [ ! -s subtract1/${GENOMEBASE}.subtract1.ltrharvest.gff3 ]; then
   echo "$(date +'%r'): Running LTR Harvest."
   mkdir -p subtract1
-  $GENOMETOOLS ltrharvest -index ${GENOMEBASE}.subtract1 -gff3 subtract1/${GENOMEBASE}.subtract1.ltrharvest.gff3 -outinner subtract1/${GENOMEBASE}.subtract1.ltrharvest.outinner.fa -out subtract1/${GENOMEBASE}.subtract1.ltrharvest.fa > subtract1/${GENOMEBASE}.subtract1.ltrharvest.out
+  $GENOMETOOLS ltrharvest -v -index ${GENOMEBASE}.subtract1 -gff3 subtract1/${GENOMEBASE}.subtract1.ltrharvest.gff3 -outinner subtract1/${GENOMEBASE}.subtract1.ltrharvest.outinner.fa -out subtract1/${GENOMEBASE}.subtract1.ltrharvest.fa > subtract1/${GENOMEBASE}.subtract1.ltrharvest.out
   echo "$(date +'%r'): Done."
   echo "$(date +'%r'): Sorting the GFF3 file."
   $GENOMETOOLS gff3 -sort subtract1/${GENOMEBASE}.subtract1.ltrharvest.gff3 > subtract1/${GENOMEBASE}.subtract1.ltrharvest.sorted.gff3
@@ -91,9 +91,8 @@ else
   echo "$(date +'%r'): First round subtraction LTR Harvest output file found, so I'm skipping ahead to round 2."
 fi
 
-### Let the while loop work for 5 rounds. My genome is fragmented, so the original 100 rounds seems excessive
-#while [ grep -c ltr_retrotransposon ${GENOMEBASE}.hardmask${i}.ltrharvest.gff3 -gt 0 ]
-while [ $i -le 5 ]
+#Run the loop for 10 rounds
+while [ $i -le 10 ]
 do
   # Define some variables for the loop
   OLDINDEX=$i
@@ -165,26 +164,12 @@ do
     # allow extra 1kb for each iteration, because we miss insertions that are not structural
     MAXLEN=$(($i * 1000 + 15000))    ### so 15kb default for the first round, plus the additional 1kb per round
     # all defaults except for maxdistltr 
-    $GENOMETOOLS ltrharvest -index ${NEWGENOME} -gff3 subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.gff3  -maxdistltr $MAXLEN -outinner subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.outinner.fa -out subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.fa > subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.out
+    $GENOMETOOLS ltrharvest -v -index ${NEWGENOME} -gff3 subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.gff3 -outinner subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.outinner.fa -out subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.fa > subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.out
     $GENOMETOOLS gff3 -sort subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.gff3 > subtract${NEWINDEX}/${NEWGENOME}.ltrharvest.sorted.gff3
     echo "$(date +'%r'): Done identifying TEs from ${NEWGENOMEFASTA}."
   else
     echo "$(date +'%r'): TEs from ${NEWGENOMEFASTA} already located. Moving on."
   fi
-  
 done
 
 echo "$(date +'%r'): I'm done. Officially."
-
-
-# 10 Nov 18, this is probably not necessary below:
-
-## can then run all the ltrdigest in array form on all the gffs
-###################
-## run ltrdigest ##
-###################
-
-#mkdir -p hardmask5/ltrdigest
-
-#$GENOMETOOLS -j 16 ltrdigest -outfileprefix hardmask5/ltrdigest/$GENOME.ltrdigest -trnas eukaryotic-tRNAs.fa -hmms gydb_hmms/GyDB_collection/profiles/*.hmm -- hardmask5/$GENOME.ltrharvest.sorted.gff3 $GENOME > hardmask5/$GENOME.ltrdigest.gff3
-
